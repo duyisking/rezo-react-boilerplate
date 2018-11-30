@@ -1,7 +1,10 @@
+# Miscellaneous
 node_modules/*
 *.log*
 playground/*
 **/.DS_Store
+
+# Dist
 dist/index.js
 dist/index.js.map
 dist/react-loadable.json
@@ -9,5 +12,7 @@ dist/public/*
 !dist/public/.gitkeep
 dist/templates/*
 !dist/templates/.gitkeep
+
+# Logs
 logs/*
 !logs/.gitkeep

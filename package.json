@@ -1,7 +1,7 @@
 {
-  "name": "react-node-webpack",
+  "name": "rezo-react-boilerplate",
   "version": "1.0.0",
-  "description": "React.js, Node.js and Webpack",
+  "description": "Rezo's boilerplate that uses React.js, SASS, Node.js and Express.js",
   "scripts": {
     "build": "npm run webpack && npm run pre-build && npm run webpack-server && npm run node",
     "dev-client": "node src/server/dummy/index.js & webpack-dev-server && fg",
@@ -22,7 +22,7 @@
     "webpack": "webpack",
     "webpack-server": "webpack --config webpack.server.config.js"
   },
-  "license": "ISC",
+  "license": "GPL-3.0",
   "dependencies": {
     "@rezolabs/pre-build": "^0.1.0",
     "antd": "^3.10.9",
