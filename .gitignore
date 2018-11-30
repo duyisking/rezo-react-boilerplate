@@ -1,0 +1,13 @@
+node_modules/*
+*.log*
+playground/*
+**/.DS_Store
+dist/index.js
+dist/index.js.map
+dist/react-loadable.json
+dist/public/*
+!dist/public/.gitkeep
+dist/templates/*
+!dist/templates/.gitkeep
+logs/*
+!logs/.gitkeep
