@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 /*
  * This script is used to inject javascript and
  * css file to the template file when running `npm run build`.
