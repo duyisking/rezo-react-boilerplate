@@ -13,7 +13,7 @@ program
         const indexJSContent = `export { default } from './${component}';
 `;
         const componentContent = `import React from 'react';
-import '${component}.sass';
+import './${component}.sass';
 
 ${cmd.class ? `export default class ${component} extends React.Component {
     //
