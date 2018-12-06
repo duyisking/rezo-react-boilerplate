@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import PropTypes from 'prop-types';
 
-// Remove accent marks
+/**
+ * Remove accent marks
+ * @param {string} str - String to remove accents
+ * @returns {string}
+ */
 const RemoveAccent = (str) => {
     let res = str;
     res = res.toLowerCase();
@@ -15,14 +20,22 @@ const RemoveAccent = (str) => {
     return res;
 };
 
-// Remove useless space
+/**
+ * Remove spaces
+ * @param {string} str - String to remove spaces
+ * @returns {string}
+ */
 const RemoveSpace = (str) => {
     let res = str;
     res = res.replace(/\s+/g, ' ');
     return res.trim();
 };
 
-// Turn a string to url format
+/**
+ * Turn a string to url format
+ * @param {string} str - String to turn to URL
+ * @returns {string}
+ */
 const toUrl = (str) => {
     let res = str;
     res = RemoveAccent(res);
@@ -32,7 +45,9 @@ const toUrl = (str) => {
     return res;
 };
 
-// Turn newline to break
+/**
+ * Turn newline to break
+ */
 const Nl2br = ({ text }) => (
     text.split('\n').map((item, key) => (
         <span key={key}>
@@ -41,13 +56,24 @@ const Nl2br = ({ text }) => (
         </span>
     ))
 );
+Nl2br.propTypes = {
+    /** Text to turn newline to break */
+    text: PropTypes.string,
+};
 
-
+/**
+ * Render noscript element
+ */
 const NoScript = ({ children }) => {
     const staticMarkup = ReactDOMServer.renderToStaticMarkup(children);
     return <noscript dangerouslySetInnerHTML={{ __html: staticMarkup }} />;
 };
 
+/**
+ * Format Date to string
+ * @param {Date} Date - Date to format to string
+ * @returns {string}
+ */
 const DateToString = (Date) => {
     let date = Date.getDate();
     let month = Date.getMonth() + 1;
@@ -57,6 +83,11 @@ const DateToString = (Date) => {
     return `${date}/${month}/${year}`;
 };
 
+/**
+ * Format Date to string with time
+ * @param {Date} Date - Date to format to string with time
+ * @returns {string}
+ */
 const DateTimeToString = (Date) => {
     let day = Date.getDay() + 1;
     let date = Date.getDate();
@@ -72,6 +103,11 @@ const DateTimeToString = (Date) => {
     return `${day}, ${date}/${month}/${year} ${hours}:${minutes}`;
 };
 
+/**
+ * Create HTML element from string
+ * @param {string} htmlString - String to turn to HTML element
+ * @returns {HTMLElement}
+ */
 const createElementFromHTML = (htmlString) => {
     const div = document.createElement('div');
     div.innerHTML = htmlString.trim();
@@ -79,13 +115,12 @@ const createElementFromHTML = (htmlString) => {
     return div;
 };
 
-const cloudinaryImage = (url, query) => {
-    if (url.match('cloudinary.com')) {
-        return url.replace(/upload\/[\w,_]+\//, `upload/${query}/`);
-    }
-    return url;
-};
-
+/**
+ * Get parameters from URL string
+ * @param {string} name - The name of the parameter
+ * @param {string} url - URL string
+ * @returns {string} - Value of the parameter
+ */
 const getParamsFromURL = (name, url) => {
     const regex = new RegExp(`[?&]${name.replace(/[[\]]/g, '\\$&')}(=([^&#]*)|&|#|$)`);
     const results = regex.exec(url);
@@ -103,6 +138,5 @@ export {
     DateToString,
     DateTimeToString,
     createElementFromHTML,
-    cloudinaryImage,
     getParamsFromURL,
 };
