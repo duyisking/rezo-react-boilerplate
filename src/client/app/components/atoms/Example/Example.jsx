@@ -1,5 +1,5 @@
 import React from 'react';
-import './Example.sass';
+import './Example.scss';
 
 export default function Example() {
     return (

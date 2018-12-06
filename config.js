@@ -11,7 +11,7 @@ module.exports = {
     ],
     WEBPACK_CSS: {
         entry: {
-            'styles': 'styles.sass',
+            'styles': 'styles.scss',
         },
     },
     externals: {

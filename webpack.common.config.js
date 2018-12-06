@@ -9,7 +9,7 @@ const APP_DIR = path.resolve(__dirname, 'src/client', config.APP);
 const entry = config.WEBPACK_CSS.entry;
 // Pre-process entries
 Object.keys(entry).forEach(function(key) {
-    entry[key] = path.resolve(APP_DIR, 'sass', entry[key]);
+    entry[key] = path.resolve(APP_DIR, 'scss', entry[key]);
 });
 
 // Common config object

@@ -13,7 +13,6 @@ const config = require('./config.js');
 
 // Declare paths
 const BUILD_DIR = path.resolve(__dirname, 'dist/public/build');
-const APP_DIR = path.resolve(__dirname, 'src/client', config.APP);
 
 // Get npm script
 const TARGET = process.env.npm_lifecycle_event;
@@ -136,8 +135,6 @@ if (TARGET !== 'webpack') {
                             loader: 'sass-loader',
                             options: {
                                 sourceMap: true,
-                                data: '@import "global";',
-                                includePaths: [path.resolve(APP_DIR, 'sass')],
                             }
                         }
                     ]
@@ -220,10 +217,6 @@ else {
                         },
                         {
                             loader: 'sass-loader',
-                            options: {
-                                data: '@import "global";',
-                                includePaths: [path.resolve(APP_DIR, 'sass')],
-                            }
                         }
                     ]
                 },

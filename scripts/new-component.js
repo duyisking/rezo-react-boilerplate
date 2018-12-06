@@ -4,7 +4,7 @@ const path = require('path');
 const program = require('commander');
 
 program
-    .version('0.0.1', '-v, --version')
+    .version('0.0.2', '-v, --version')
     .arguments('<dir> <name>')
     .option('-c, --class', 'Class component')
     .action((directory, component, cmd) => {
@@ -13,7 +13,7 @@ program
         const indexJSContent = `export { default } from './${component}';
 `;
         const componentContent = `import React from 'react';
-import './${component}.sass';
+import './${component}.scss';
 
 ${cmd.class ? `export default class ${component} extends React.Component {
     //
@@ -22,6 +22,24 @@ ${cmd.class ? `export default class ${component} extends React.Component {
     //
 }
 `}`;
+
+        const testContent = `
+import React from 'react';
+import { shallow } from 'enzyme';
+
+import ${component} from './${component}';
+
+describe('${component}', () => {
+    const wrapper = shallow(<${component} />);
+
+    it('', () => {
+        //
+    });
+});
+`;
+
+        const scssContent = `@import '../../../scss/global.scss'
+`;
 
         const dirPath = path.join(__dirname, '../src/client/app/components', directory);
         if (!fs.existsSync(dirPath)) {
@@ -37,8 +55,8 @@ ${cmd.class ? `export default class ${component} extends React.Component {
         fs.mkdirSync(componentDirectory);
         fs.writeFileSync(path.join(componentDirectory, 'index.js'), indexJSContent);
         fs.writeFileSync(path.join(componentDirectory, `${component}.jsx`), componentContent);
-        fs.writeFileSync(path.join(componentDirectory, `${component}.test.js`), '');
-        fs.writeFileSync(path.join(componentDirectory, `${component}.sass`), '');
+        fs.writeFileSync(path.join(componentDirectory, `${component}.test.js`), testContent);
+        fs.writeFileSync(path.join(componentDirectory, `${component}.scss`), scssContent);
     });
 
 program.parse(process.argv);
