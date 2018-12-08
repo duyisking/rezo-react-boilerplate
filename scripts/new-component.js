@@ -38,7 +38,7 @@ describe('${component}', () => {
 });
 `;
 
-        const scssContent = `@import '../../../scss/global.scss'
+        const scssContent = `@import '../../../scss/global.scss';
 `;
 
         const dirPath = path.join(__dirname, '../src/client/app/components', directory);

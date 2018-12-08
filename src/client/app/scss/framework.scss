@@ -1,3 +1,5 @@
+@import 'global';
+
 /*
  * Font
  */
@@ -177,36 +179,90 @@
     border: none
 }
 
-@for $i from 1 to 8 {
-    .p_#{$i * 5} {
-        padding: 5px * $i;
+/**
+ * Padding and margin
+ */
+$side_list: "" "", t -top, r -right, b -bottom, l -left;
+@each $side in $side_list {
+    @for $i from 1 to 11 {
+        .p#{nth($side, 1)}_#{$i * 5} {
+            padding#{nth($side, 2)}: 5px * $i;
+        }
+        .m#{nth($side, 1)}_#{$i * 5} {
+            margin#{nth($side, 2)}: 5px * $i;
+        }
     }
-    .pt_#{$i * 5} {
-        padding-top: 5px * $i;
+}
+@include xs {
+    @each $side in $side_list {
+        @for $i from 1 to 11 {
+            .p#{nth($side, 1)}_xs_#{$i * 5} {
+                padding#{nth($side, 2)}: 5px * $i;
+            }
+            .m#{nth($side, 1)}_xs_#{$i * 5} {
+                margin#{nth($side, 2)}: 5px * $i;
+            }
+        }
     }
-    .pr_#{$i * 5} {
-        padding-right: 5px * $i;
+}
+@include sm {
+    @each $side in $side_list {
+        @for $i from 1 to 11 {
+            .p#{nth($side, 1)}_sm_#{$i * 5} {
+                padding#{nth($side, 2)}: 5px * $i;
+            }
+            .m#{nth($side, 1)}_sm_#{$i * 5} {
+                margin#{nth($side, 2)}: 5px * $i;
+            }
+        }
     }
-    .pb_#{$i * 5} {
-        padding-bottom: 5px * $i;
+}
+@include md {
+    @each $side in $side_list {
+        @for $i from 1 to 11 {
+            .p#{nth($side, 1)}_md_#{$i * 5} {
+                padding#{nth($side, 2)}: 5px * $i;
+            }
+            .m#{nth($side, 1)}_md_#{$i * 5} {
+                margin#{nth($side, 2)}: 5px * $i;
+            }
+        }
     }
-    .pl_#{$i * 5} {
-        padding-left: 5px * $i;
+}
+@include lg {
+    @each $side in $side_list {
+        @for $i from 1 to 11 {
+            .p#{nth($side, 1)}_lg_#{$i * 5} {
+                padding#{nth($side, 2)}: 5px * $i;
+            }
+            .m#{nth($side, 1)}_lg_#{$i * 5} {
+                margin#{nth($side, 2)}: 5px * $i;
+            }
+        }
     }
-    .m_#{$i * 5} {
-        margin: 5px * $i;
+}
+@include xl {
+    @each $side in $side_list {
+        @for $i from 1 to 11 {
+            .p#{nth($side, 1)}_xl_#{$i * 5} {
+                padding#{nth($side, 2)}: 5px * $i;
+            }
+            .m#{nth($side, 1)}_xl_#{$i * 5} {
+                margin#{nth($side, 2)}: 5px * $i;
+            }
+        }
     }
-    .mt_#{$i * 5} {
-        margin-top: 5px * $i;
-    }
-    .mr_#{$i * 5} {
-        margin-right: 5px * $i;
-    }
-    .mb_#{$i * 5} {
-        margin-bottom: 5px * $i;
-    }
-    .ml_#{$i * 5} {
-        margin-left: 5px * $i;
+}
+@include xxl {
+    @each $side in $side_list {
+        @for $i from 1 to 11 {
+            .p#{nth($side, 1)}_xxl_#{$i * 5} {
+                padding#{nth($side, 2)}: 5px * $i;
+            }
+            .m#{nth($side, 1)}_xxl_#{$i * 5} {
+                margin#{nth($side, 2)}: 5px * $i;
+            }
+        }
     }
 }
 
