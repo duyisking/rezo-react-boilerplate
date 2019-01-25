@@ -2,13 +2,14 @@ const express = require('express');
 const path = require('path');
 const chalk = require('chalk');
 const _ = require('lodash');
+const config = require('../../../config.js');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = config.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, '../../../static')));
 
-app.set('views', path.join(__dirname, '../templates'));
+app.set('views', path.join(__dirname, '../templates/dev'));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
@@ -23,7 +24,7 @@ app.get('/', (req, res) => {
             description: '',
         },
     };
-    res.render('index', {
+    res.render('landing', {
         data,
     });
 });

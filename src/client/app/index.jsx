@@ -1,32 +1,44 @@
-// import React
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import {
     BrowserRouter as Router,
 } from 'react-router-dom';
-import { createStore } from 'redux';
+import {
+    createStore,
+    applyMiddleware,
+    compose,
+} from 'redux';
+import { Provider } from 'react-redux';
 import Loadable from 'react-loadable';
 
-import state from 'reducers';
-import App from 'components/app';
+import GlobalStyle from './components/GlobalStyle';
+import App from './components/App';
 
-// Grab the state from a global variable injected into the server-generated HTML
-const preloadedState = window.__PRELOADED_STATE__;
-
-// Allow the passed state to be garbage-collected
-delete window.__PRELOADED_STATE__;
+// Reducer
+import {
+    state,
+    logger,
+    crashReporter,
+} from './redux/reducers';
 
 // Create Redux store with initial state
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
     state,
-    preloadedState,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+    composeEnhancers(applyMiddleware(logger, crashReporter)),
 );
 
+const supportsHistory = 'pushState' in window.history;
+
 Loadable.preloadReady().then(() => {
-    ReactDOM.hydrate(
-        <Router>
-            <App store={store} />
+    render(
+        <Router forceRefresh={!supportsHistory}>
+            <Provider store={store}>
+                <React.Fragment>
+                    <GlobalStyle />
+                    <App />
+                </React.Fragment>
+            </Provider>
         </Router>,
         document.getElementById('root'),
     );
