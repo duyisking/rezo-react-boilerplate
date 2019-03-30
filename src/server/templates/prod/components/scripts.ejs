@@ -1,0 +1,15 @@
+<script>
+    window.__PRELOADED_STATE__ = <%-JSON.stringify(data.preloadedState).replace(/</g, '\\u003c')%>
+</script>
+<script src="/js/font-loader.js"></script>
+<script src="/js/react.production.min.js"></script>
+<script src="/js/react-dom.production.min.js"></script>
+<%-
+    data.bundles.map(function(bundle) {
+        if(!bundle.file.match(/.+map$/))
+        return `<script src="/build/${bundle.file}"></script>`;
+        else
+        return '';
+    }).join('\n')
+%>
+<script src="/build/main.bundle.<%=data.hash%>.js"></script>

@@ -1,21 +1,10 @@
 module.exports = {
+    // Specify which app to run if multiple apps are presented
     APP: 'app',
-    API_URL: [
-        'http://localhost:3000',
-        '',
-    ],
-    CSS_PREFIX: [
-        'last 3 versions',
-        'Firefox >= 20',
-        'iOS >= 7',
-    ],
-    WEBPACK_CSS: {
-        entry: {
-            'styles': 'styles.scss',
-        },
-    },
-    externals: {
-        'react': 'React',
-        'react-dom': 'ReactDOM',
-    },
-}
+    // The port which localhost will run on when starting the server
+    PORT: 3000,
+    // The port used by Webpack Dev Server
+    WEBPACK_PORT: 8080,
+    // The API url, could be the host IP, domain name of the web server or a small service
+    API_URL: 'http://localhost:3001',
+};

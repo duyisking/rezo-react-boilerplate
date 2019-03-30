@@ -1,26 +1,22 @@
-import express from 'express';
-import path from 'path';
-import chalk from 'chalk';
-import _ from 'lodash';
-
-import * as routes from './routes';
+const express = require('express');
+const path = require('path');
+const chalk = require('chalk');
+const _ = require('lodash');
+const config = require('../../config.js');
+const RouteHandler = require('./routes').default;
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = config.PORT || 3000;
 
-if (process.env.NODE_ENV !== 'production') {
-    app.use(express.static(path.join(__dirname, '../../static')));
+app.use(express.static(path.join(__dirname, '../static')));
+app.set('views', path.join(__dirname, '../src/server/templates/dev'));
+if (process.env.NODE_ENV === 'production') {
     app.set('views', path.join(__dirname, 'templates'));
-}
-else {
-    app.use(express.static(path.join(__dirname, './public')));
-    app.use(express.static(path.join(__dirname, '../static')));
-    app.set('views', path.join(__dirname, './templates'));
 }
 
 app.set('view engine', 'ejs');
 
-app.get('/', routes.index);
+RouteHandler(app);
 
 app.listen(PORT, () => {
     const length = 100;
@@ -29,4 +25,5 @@ app.listen(PORT, () => {
     console.log(chalk.bgBlue(_.repeat(' ', length)));
     console.log(chalk.bgBlue.black(_.repeat(' ', padding), text, _.repeat(' ', padding)));
     console.log(chalk.bgBlue(_.repeat(' ', length)));
+    process.send('ready');
 });

@@ -1,39 +1,34 @@
-# Rezo-react-boilerplate
-A repository created by Rezo team.
-<br />
-Rezo's boilerplate that uses React.js, SASS, Node.js and Express.js.
+# Universal React App
+A boilerplate to create Universal React Application.
+
+## Features
+- **React application + Express server** - You can build Front-end and Back-end simultaneously, perfect for Full-stack developers.
+- **Hot reloading** - Your saved changes on both client and server code are reflected instantaneously.
+- **High Performance** - Fast start up and build time.
+- **Flexibile configurations** - Configurations allow you to greatly customize base on use case.
+- **SEO supported** - With Server-side rendering, SEO is not a problem with React SPA. Sitemap and robots.txt can be included as static files.
+
+
 ## Installation
 ```
-git clone https://github.com/duyisking/Rezo-react-boilerplate
-cd Rezo-react-boilerplate
+git clone https://github.com/duyisking/universal-react-app example
+cd example
 npm install
 ```
 
 ## Getting Started
-For Linux and MacOS users, to start developing, run:
+To run the application, execute the command:
 ```
 npm start
 ```
-For Windows users, run:
-```
-npm start-win
-```
-## Table of npm scripts
+
+## Commands
 | Script | Parameters | Description | 
 | ------ | ---------- | ----------- |
-| `dev-client` | | Run webpack-dev-server for client side. |
-| `dev-server` | `SSR` | Run webpack for server side, then run a node instance on build end. The `ssr` parameter specify whether to handle server side rendering or not. |
-| `start` | | Run both `dev-client` and `dev-server` simultaneously. |
+| `start` | SSR | Run universal app with both client and server side running simultaneously. |
+| `dev-client` | | Run only the client side, with the help of a dummy server. |
+| `lint` | | Check linting and display report. |
+| `test` | | Run Jest test. |
 | `build` | | Build on production mode. |
-| `test` | | Run test. |
-
-## Some notes
-When deploying new version of a website to the hosting server, every script which is modified on development must be updated to the newest version on the client machine. Because of the cache functionality in modern browsers, we had faced difficulty on this problem. To erase this, we add a hash suffix to script and style files in all template files using pre-build.js.
-<br/>
-### Pre-build.js
-Pre-build.js is a javascript file that I wrote to do various kind of tasks on many HTML files (can work with EJS either).
-<br/>
-Some of them are:
-- Inserting hash suffix to src or href attribute of script or link tag.
-- Replace script or link tag by its src file content.
-- ... (may need more in the future).
+| `node` | | Run the node process of the server. Must be called after running `build`. |
+| `new-component <path> <name>` | | Create a new component by name at a specific path relative to components directory. |

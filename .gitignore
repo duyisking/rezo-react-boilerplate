@@ -12,6 +12,8 @@ dist/public/*
 !dist/public/.gitkeep
 dist/templates/*
 !dist/templates/.gitkeep
+dist/compilation-stats.json
+dist/lint-report.html
 
 # Logs
 logs/*
