@@ -23,12 +23,12 @@ npm start
 ```
 
 ## Commands
-| Script | Parameters | Description | 
-| ------ | ---------- | ----------- |
-| `start` | SSR | Run universal app with both client and server side running simultaneously. |
-| `dev-client` | | Run only the client side, with the help of a dummy server. |
-| `lint` | | Check linting and display report. |
-| `test` | | Run Jest test. |
-| `build` | | Build on production mode. |
-| `node` | | Run the node process of the server. Must be called after running `build`. |
-| `new-component <path> <name>` | | Create a new component by name at a specific path relative to components directory. |
+| Script<img style="float:left" width=700/> | Description |
+| --------- | ----------- |
+| `start` | Run universal app with both client and server side running simultaneously. There are 2 modes, one do server-side rendering and one don't. By default, the non-SSR mode is chosen, you can change it by specify the environment variable SSR with the value of 'true' (e.g. `SSR=true npm start`). |
+| `dev-client` | Run only the client side, with the help of a dummy express server. |
+| `lint` | Check linting and display report. |
+| `test` | Run Jest test. |
+| `build` | Build on production mode. |
+| `node` | Run the node process of the server. Must be called after running `build`. |
+| `new-component <path> <name>` | Create a new component by name at a specific path relative to components directory. |
