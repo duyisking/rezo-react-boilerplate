@@ -1,8 +1,21 @@
-# Version 1.1.0
-- The first version had exposed too many config files that were hard for the beginner to understand. I decided to move most of them to a specific directory named 'configs'. So that this boilerplate can remain its flexibility while abstracting away those headache configurations.
-- Q: Do we need to build multiple apps only in a single boilerplate?
-A: (This boilerplate was meant to build a web server with both client and server sides, routes, apis, etc. As we are going to build an application base on the microservices architecture, our goal is to build a system that is highly scalable, maintainable and easy to develop & deploy. When building a system, we need more than one service to run simultaneously. If we only build a service per repo then it's difficult to manage to run them for deployment. Instead, we can write a Dockerfile for each service and a global Docker compose file to automatically do all of the required jobs. Thus, the answer is YES. We will build multiple services in this boilerplate without creating new repos. This boilerplate can support running one or multiple services as we want just by editing the configuration file.
-Our next project will be written in this boilerplate using NodeJS (this boilerplate only support NodeJS). A service can be written in other languages such as Python or PHP, so if we have to do that, we need to figure out how to run it with those NodeJS services. One solution is copying that service into this repo inside a folder, but it may not be working for all cases. This is a future problem!
+## [Unreleased]
+### Features
+- Write [CHANGELOG.md](#) the right way.
 
-    ##### Update Answer
-- The above is the original answer. But there is one major problem with building multiple services in this boilerplate. This boilerplate is for building React application, which means that it has to deal with front-end. But a service in the microservices architecture can be an API service, respond requests with a simple format (i.e JSON). If we want to write a service such as searching service, this boilerplate is redundant. The better choice is to write the service in the appropriate boilerplate. Therefore, the answer for this question is NO. We will build each service as a separate repository. The problem of deployment described previously could be solved by making the service repository be the submodule of the deploy repository. That is even easier when dealing with multiple languages system.
+## [1.0.0] (Jan 25 2019)
+### Features:
+- Use Styled-component to replace SASS and CSS.
+- Useful life cycle scripts are available, script's loggings are less verbose.
+- Huge change in configurations. Configurations were moved into a single folder for simplicity, only exposed one config file to the outside.
+- Use Jest for testing, Enzyme for testing React's components.
+- Prewrite React component template with `new-component`.
+- Prewrite Server templates.
+- Remove pre-build script for EJS templates. EJS templates were split into 2 separate folders used for development and production respectively.
+- Use JSDoc for documentation.
+- Automatically generate Bundle Analyzer report on production build.
+- Linting generates HTML report and automatically open browser view.
+### Bug fixes:
+- Fix bug server not restarting upon changing server code sometimes.
+
+## [0.1.0] (Nov 30, 2018)
+- Initial public release.
