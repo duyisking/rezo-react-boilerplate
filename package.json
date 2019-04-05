@@ -4,7 +4,6 @@
   "description": "A boilerplate to create Universal React Application.",
   "scripts": {
     "start": "node configs/scripts/start.js",
-    "dev-client": "node src/server/dummy/index.js & webpack-dev-server",
     "lint": "node configs/scripts/lint.js",
     "test": "jest --config ./configs/jest.config.js",
     "build": "node configs/scripts/build.js",
