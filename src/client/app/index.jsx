@@ -13,6 +13,7 @@ import Loadable from 'react-loadable';
 
 import GlobalStyle from './components/GlobalStyle';
 import App from './components/App';
+import Head from './components/Head';
 
 // Reducer
 import {
@@ -21,10 +22,17 @@ import {
     crashReporter,
 } from './redux/reducers';
 
+// Grab the state from a global variable injected into the server-generated HTML
+const preloadedState = window.__PRELOADED_STATE__;
+
+// Allow the passed state to be garbage-collected
+delete window.__PRELOADED_STATE__;
+
 // Create Redux store with initial state
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
     state,
+    preloadedState,
     composeEnhancers(applyMiddleware(logger, crashReporter)),
 );
 
@@ -35,6 +43,7 @@ Loadable.preloadReady().then(() => {
         <Router forceRefresh={!supportsHistory}>
             <Provider store={store}>
                 <React.Fragment>
+                    <Head />
                     <GlobalStyle />
                     <App />
                 </React.Fragment>

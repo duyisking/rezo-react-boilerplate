@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import metadata from './metadata';
 
 const logger = store => next => (action) => {
     console.log('DISPATCHING', action);
@@ -18,6 +19,7 @@ const crashReporter = () => next => (action) => {
 };
 
 const state = combineReducers({
+    metadata,
 });
 
 export {
