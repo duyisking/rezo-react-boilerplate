@@ -19,6 +19,11 @@ const BUILD_DIR = path.resolve(PUBLIC_DIR, 'build');
 const LOCALHOST = `http://localhost:${config.PORT}`;
 const WEBPACK_LOCALHOST = `http://localhost:${config.WEBPACK_PORT}`;
 
+const GLOBALS = config.globals;
+Object.keys(config.globals).forEach((key) => {
+    GLOBALS[key] = JSON.stringify(GLOBALS[key]);
+});
+
 module.exports = {
     config,
     WORK_DIR,
@@ -32,4 +37,5 @@ module.exports = {
     BUILD_DIR,
     LOCALHOST,
     WEBPACK_LOCALHOST,
+    GLOBALS,
 };

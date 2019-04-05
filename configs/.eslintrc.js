@@ -1,12 +1,17 @@
+const config = require('../config');
+
+const GLOBALS = config.globals;
+Object.keys(config.globals).forEach((key) => {
+    GLOBALS[key] = false;
+});
+
 module.exports = {
     "extends": ["airbnb", "plugin:jest/recommended"],
     "env": {
         "browser": true,
         "node": true,
     },
-    "globals": {
-        "API_URL": false
-    },
+    "globals": GLOBALS,
     "parser": "babel-eslint",
     "rules": {
         "indent": ["error", 4, {

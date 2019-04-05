@@ -95,13 +95,12 @@ if (TARGET !== 'build') {
         },
 
         plugins: [
-            new webpack.DefinePlugin({
+            new webpack.DefinePlugin(Object.assign({}, constants.GLOBALS, {
                 'process.env': {
-                    PORT: JSON.stringify(config.PORT),
-                    SSR: process.env.SSR === 'true',
+                    PORT: config.PORT,
+                    SSR: process.env.SSR === 'true' || constants.GLOBALS.SSR,
                 },
-                API_URL: JSON.stringify(constants.LOCALHOST),
-            }),
+            })),
             new webpack.BannerPlugin({
                 banner: 'require("source-map-support").install();',
                 raw: true,
@@ -132,14 +131,13 @@ else {
         devtool: 'source-map',
 
         plugins: [
-            new webpack.DefinePlugin({
+            new webpack.DefinePlugin(Object.assign({}, constants.GLOBALS, {
                 'process.env': {
-                    PORT: JSON.stringify(config.PORT),
+                    PORT: config.PORT,
                     NODE_ENV: JSON.stringify('production'),
-                    SSR: JSON.stringify('true'),
+                    SSR: true,
                 },
-                API_URL: JSON.stringify(config.API_URL),
-            }),
+            })),
             new CleanWebpackPlugin([constants.PROD_TEMPLATES_DIR], {
                 root: constants.WORK_DIR,
                 exclude: ['.gitkeep'],
