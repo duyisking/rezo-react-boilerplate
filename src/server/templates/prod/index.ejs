@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi">
 
-<head>
-
-  <%- include('components/head'); -%>
-
+<head <%=data.helmet.htmlAttributes.toString()%>>
+    <%-data.helmet.title.toString()%>
+    <%-data.helmet.meta.toString()%>
+    <%-data.helmet.link.toString()%>
 </head>
 
-<body>
+<body <%=data.helmet.bodyAttributes.toString()%>>
   
   <div id="root"><%-data.html%></div>
   
