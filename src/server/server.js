@@ -2,15 +2,15 @@ const express = require('express');
 const path = require('path');
 const chalk = require('chalk');
 const _ = require('lodash');
-const config = require('../../config.js');
 const RouteHandler = require('./routes').default;
 
 const app = express();
-const PORT = config.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, '../static')));
 app.set('views', path.join(__dirname, '../src/server/templates/dev'));
 if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'public')));
     app.set('views', path.join(__dirname, 'templates'));
 }
 

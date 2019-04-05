@@ -20,8 +20,6 @@ import Head from 'components/Head';
 import stats from '../../../../dist/react-loadable.json';
 import compilationStats from '../../../../dist/compilation-stats.json';
 
-const host = API_URL;
-
 /**
  * Metadata object for rendering head tag.
  * @typedef {Object} Metadata
