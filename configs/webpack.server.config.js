@@ -3,6 +3,7 @@ const merge = require('webpack-merge');
 const path = require('path');
 const opn = require('opn');
 const nodeExternals = require('webpack-node-externals');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackShellPlugin = require('./plugin/webpack/webpack-shell-plugin.js');
 const constants = require('./constants.js');
@@ -139,8 +140,12 @@ else {
                 },
                 API_URL: JSON.stringify(config.API_URL),
             }),
+            new CleanWebpackPlugin([constants.PROD_TEMPLATES_DIR], {
+                root: constants.WORK_DIR,
+                exclude: ['.gitkeep'],
+            }),
             new CopyWebpackPlugin([{
-                from: path.resolve(constants.TEMPLATES_DIR, 'prod'),
+                from: path.resolve(constants.DEV_TEMPLATES_DIR, 'prod'),
                 to: constants.PROD_TEMPLATES_DIR,
             }]),
         ],
