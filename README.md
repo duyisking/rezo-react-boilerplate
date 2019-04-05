@@ -26,9 +26,8 @@ npm start
 | Script<img style="float:left" width=700/> | Description |
 | --------- | ----------- |
 | `start` | Run universal app with both client and server side running simultaneously. There are 2 modes, one do server-side rendering and one don't. By default, the non-SSR mode is chosen, you can change it by specify the environment variable SSR with the value of 'true' (e.g. `SSR=true npm start`). |
-| `dev-client` | Run only the client side, with the help of a dummy express server. |
-| `lint` | Check linting and display report. |
+| `lint` | Run ESLint and display report. |
 | `test` | Run Jest test. |
-| `build` | Build on production mode. |
-| `node` | Run the node process of the server. Must be called after running `build`. |
-| `new-component <path> <name>` | Create a new component by name at a specific path relative to components directory. |
+| `build` | Build app on production mode. This command will output compiled files and all other resources to the `dist` folder. |
+| `node` | Run the node process of the production server. Must be called after running `build`. |
+| `new-component <path> <name>` | Create a new component by name at a specific path relative to components directory. The path is relative to `component` directory. For example, `npm run new-component ./Pages Landing` will create the Landing component at the `component/Pages` directory. |
