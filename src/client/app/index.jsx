@@ -22,6 +22,11 @@ import {
     crashReporter,
 } from './redux/reducers';
 
+// Note that this script will not be running on the NodeJS environment.
+// The `process.env.NODE_ENV` variable below is a forged variable created by Webpack
+// See dist/webpack.config.js
+const IS_PRODUCTION_MODE = process.env.NODE_ENV === 'production';
+
 // Grab the state from a global variable injected into the server-generated HTML
 const preloadedState = window.__PRELOADED_STATE__;
 
@@ -33,7 +38,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
     state,
     preloadedState,
-    composeEnhancers(applyMiddleware(logger, crashReporter)),
+    IS_PRODUCTION_MODE && composeEnhancers(applyMiddleware(logger, crashReporter)),
 );
 
 const supportsHistory = 'pushState' in window.history;
