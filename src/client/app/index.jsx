@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { render, hydrate } from 'react-dom';
 import {
     BrowserRouter as Router,
 } from 'react-router-dom';
@@ -23,9 +23,10 @@ import {
 } from './redux/reducers';
 
 // Note that this script will not be running on the NodeJS environment.
-// The `process.env.NODE_ENV` variable below is a forged variable created by Webpack
+// The `process.env` variable is a forged variable created by Webpack.
 // See dist/webpack.config.js
 const IS_PRODUCTION_MODE = process.env.NODE_ENV === 'production';
+const IS_SSR_MODE = process.env.SSR;
 
 // Grab the state from a global variable injected into the server-generated HTML
 const preloadedState = window.__PRELOADED_STATE__;
@@ -34,17 +35,27 @@ const preloadedState = window.__PRELOADED_STATE__;
 delete window.__PRELOADED_STATE__;
 
 // Create Redux store with initial state
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-    state,
-    preloadedState,
-    IS_PRODUCTION_MODE && composeEnhancers(applyMiddleware(logger, crashReporter)),
-);
+let store;
+if (IS_PRODUCTION_MODE) {
+    store = createStore(
+        state,
+        preloadedState,
+    );
+}
+else {
+    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    store = createStore(
+        state,
+        preloadedState,
+        composeEnhancers(applyMiddleware(logger, crashReporter)),
+    );
+}
 
 const supportsHistory = 'pushState' in window.history;
 
 Loadable.preloadReady().then(() => {
-    render(
+    // Server-side rendering mode use hydrate, otherwise use render
+    (IS_SSR_MODE ? hydrate : render)(
         <Router forceRefresh={!supportsHistory}>
             <Provider store={store}>
                 <React.Fragment>

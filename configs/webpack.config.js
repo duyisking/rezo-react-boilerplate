@@ -48,7 +48,11 @@ if (TARGET !== 'build') {
         plugins: [
             // This makes everything reloaded when you change files
             new webpack.HotModuleReplacementPlugin(),
-            new webpack.DefinePlugin(constants.GLOBALS),
+            new webpack.DefinePlugin(Object.assign({}, constants.GLOBALS, {
+                'process.env': {
+                    SSR: process.env.SSR === 'true' || constants.GLOBALS.SSR,
+                },
+            })),
         ],
 
     });
@@ -78,6 +82,7 @@ else {
             new webpack.DefinePlugin(Object.assign({}, constants.GLOBALS, {
                 'process.env': {
                     NODE_ENV: JSON.stringify('production'),
+                    SSR: true,
                 },
             })),
             new UglifyJSPlugin(),
