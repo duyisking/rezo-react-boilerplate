@@ -1,6 +1,16 @@
 ## [Unreleased]
+
+## [1.1.0] (April 24 2019)
 ### Features
 - Write [CHANGELOG.md](#) the right way.
+- Add React Helmet component to replace EJS head templates.
+### Bug fixes:
+- Fix Webpack not clean templates on production.
+- Add preloaded state to redux store.
+- Resolve new-component script's path error and enhanced templates.
+- Update dependencies by audit.
+- Fix server static path on production.
+- Fix babel-eslint error (https://github.com/babel/babel-eslint/issues/530)
 
 ## [1.0.0] (Jan 25 2019)
 ### Features:
