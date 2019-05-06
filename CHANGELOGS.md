@@ -1,4 +1,8 @@
 ## [Unreleased]
+### Bug fixes:
+- Fix redux logging on production mode.
+- Fix no font to load.
+- Fix warning message when using hydrate without SSR.
 
 ## [1.1.0] (April 24 2019)
 ### Features

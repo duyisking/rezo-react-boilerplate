@@ -4,6 +4,8 @@
 - Integrate Docker.
 - Find a way to handle dev and prod templates.
 - Write test for server.
+- Hot reload for config.js
+- Extend config.js configuration ability.
 
 ## Bugs
 - Hot restart on server-side causes the webpage to crash because requests from the client to the server (webpack dev server) is proxied to the real server, which is reloading and not reply to incoming requests. Solutions:
