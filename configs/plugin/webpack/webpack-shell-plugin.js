@@ -43,9 +43,6 @@ class WebpackShellPlugin {
             if (filteredChangedFiles.length > 0) {
                 console.log('Changed files: ', filteredChangedFiles);
             }
-            else {
-                console.log('No changes happen.');
-            }
         }
         return (filteredChangedFiles.length > 0);
     }

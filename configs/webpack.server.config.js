@@ -116,7 +116,7 @@ if (TARGET !== 'build') {
                         }
                     });
                 },
-                ssr: process.env.SSR === 'true',
+                ssr: process.env.SSR === 'true' || constants.GLOBALS.SSR,
             }),
         ],
 
