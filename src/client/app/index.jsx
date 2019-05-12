@@ -9,7 +9,7 @@ import {
     compose,
 } from 'redux';
 import { Provider } from 'react-redux';
-import Loadable from 'react-loadable';
+import { loadableReady } from '@loadable/component';
 
 import GlobalStyle from './components/GlobalStyle';
 import App from './components/App';
@@ -53,7 +53,7 @@ else {
 
 const supportsHistory = 'pushState' in window.history;
 
-Loadable.preloadReady().then(() => {
+loadableReady(() => {
     // Server-side rendering mode use hydrate, otherwise use render
     (IS_SSR_MODE ? hydrate : render)(
         <Router forceRefresh={!supportsHistory}>

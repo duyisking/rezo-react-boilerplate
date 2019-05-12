@@ -1,0 +1,50 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.29.6",
+  "hash": "1278db740480857ddbc7",
+  "publicPath": "/build/",
+  "outputPath": "/home/duyisking/Documents/Rezo-projects/universal-react-app/dist/public/build",
+  "assetsByChunkName": {
+    "main": "main.bundle.js"
+  },
+  "assets": [
+    {
+      "name": "main.bundle.js",
+      "size": 1177080,
+      "chunks": [
+        "main"
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "main": {
+      "chunks": [
+        "main"
+      ],
+      "assets": [
+        "main.bundle.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "chunks": [
+        "main"
+      ],
+      "assets": [
+        "main.bundle.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "children": []
+}

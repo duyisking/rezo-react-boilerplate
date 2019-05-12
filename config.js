@@ -9,4 +9,15 @@ module.exports = {
     globals: {
         API_URL: 'http://localhost:3001',
     },
+    babelrc: {
+        presets: [
+            '@babel/preset-env',
+            '@babel/preset-react',
+        ],
+        plugins: [
+            'babel-plugin-styled-components',
+            '@babel/plugin-syntax-dynamic-import',
+            '@loadable/babel-plugin',
+        ],
+    },
 };

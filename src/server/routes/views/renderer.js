@@ -1,12 +1,12 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
-import Loadable from 'react-loadable';
-import { getBundles } from 'react-loadable/webpack';
+import { ChunkExtractor } from '@loadable/server';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import chalk from 'chalk';
+import path from 'path';
 import express from 'express'; /* eslint no-unused-vars: "off" */
 
 /* eslint-disable import/no-unresolved */
@@ -17,8 +17,10 @@ import App from 'components/App';
 import Head from 'components/Head';
 /* eslint-enable import/no-unresolved */
 
-import stats from '../../../../dist/react-loadable.json';
 import compilationStats from '../../../../dist/compilation-stats.json';
+
+const statsFile = path.resolve('./dist/loadable-stats.json');
+const extractor = new ChunkExtractor({ statsFile });
 
 /**
  * Metadata object for rendering head tag.
@@ -81,26 +83,23 @@ const renderWithSSR = (req, res, ejs, metadata, initState, status = 200, others 
         metadata,
     });
 
-    const modules = [];
-    const html = renderToString(
-        <Loadable.Capture report={moduleName => modules.push(moduleName)}>
-            <StaticRouter location={req.url} context={staticContext}>
-                <Provider store={store}>
-                    <React.Fragment>
-                        <Head />
-                        <App />
-                    </React.Fragment>
-                </Provider>
-            </StaticRouter>
-        </Loadable.Capture>,
+    const jsx = extractor.collectChunks(
+        <StaticRouter location={req.url} context={staticContext}>
+            <Provider store={store}>
+                <>
+                    <Head />
+                    <App />
+                </>
+            </Provider>
+        </StaticRouter>,
     );
+    const html = renderToString(jsx);
 
-    const bundles = getBundles(stats, modules);
     const helmet = Helmet.renderStatic();
 
     const data = {
         html,
-        bundles,
+        bundles: [], // bundles
         preloadedState: store.getState(),
         helmet,
         hash: compilationStats.hash,
