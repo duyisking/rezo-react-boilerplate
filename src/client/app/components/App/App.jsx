@@ -1,4 +1,7 @@
 import React from 'react';
+
+import './App.css';
+
 import ChangeTitleForm from '../ChangeTitleForm';
 
 export default function App() {
