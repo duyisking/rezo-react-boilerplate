@@ -36,7 +36,8 @@ const common = {
                 test: /\.jsx?/,
                 loader: 'babel-loader',
                 options: {
-                    babelrc: path.resolve(constants.WORK_DIR, '.babelrc'),
+                    cacheDirectory: path.resolve(constants.WORK_DIR, 'node_modules/.cache/server/babel-loader'),
+                    ...config.babelrc,
                 },
             },
             {
@@ -116,7 +117,7 @@ if (TARGET !== 'build') {
                         }
                     });
                 },
-                ssr: process.env.SSR === 'true',
+                ssr: process.env.SSR === 'true' || constants.GLOBALS.SSR,
             }),
         ],
 

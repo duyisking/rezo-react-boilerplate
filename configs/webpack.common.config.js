@@ -1,6 +1,8 @@
 const path = require('path');
-const { ReactLoadablePlugin } = require('react-loadable/webpack');
+const LoadablePlugin = require('@loadable/webpack-plugin');
 const constants = require('./constants.js');
+
+const { config } = constants;
 
 // Common config object
 module.exports = {
@@ -50,10 +52,14 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        cacheDirectory: path.resolve(constants.WORK_DIR, 'node_modules/.cache/babel-loader'),
-                        babelrc: path.resolve(constants.WORK_DIR, '.babelrc'),
+                        cacheDirectory: path.resolve(constants.WORK_DIR, 'node_modules/.cache/client/babel-loader'),
+                        ...config.babelrc,
                     },
                 },
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
             },
         ],
     },
@@ -63,8 +69,11 @@ module.exports = {
     },
 
     plugins: [
-        new ReactLoadablePlugin({
-            filename: path.resolve(constants.DIST_DIR, 'react-loadable.json'),
+        new LoadablePlugin({
+            writeToDisk: {
+                filename: path.resolve(constants.DIST_DIR),
+            },
+            outputAsset: false, // prevent creating of 2 files
         }),
     ],
 

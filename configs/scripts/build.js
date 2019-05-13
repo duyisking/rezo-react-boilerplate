@@ -1,3 +1,4 @@
+const program = require('commander');
 const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
@@ -9,7 +10,11 @@ const {
     errorHandler,
 } = require('./utils');
 
-const clientCompiler = webpack(clientConfig);
+program
+    .option('-o, --open', 'Automatically open bundle analyzer report in default browser')
+    .parse(process.argv);
+
+const clientCompiler = webpack(clientConfig(program.open));
 const serverCompiler = webpack(serverConfig);
 
 async.series([

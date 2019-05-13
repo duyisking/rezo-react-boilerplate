@@ -1,4 +1,6 @@
 const chalk = require('chalk');
+const logSymbols = require('log-symbols');
+const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -17,7 +19,7 @@ const common = require('./webpack.common.config.js');
 
 if (TARGET !== 'build') {
     // Development mode
-    console.log(chalk.red.bold('DEVELOPMENT MODE'));
+    console.log(logSymbols.info, chalk.red.bold('DEVELOPMENT MODE'));
     module.exports = merge(common, {
 
         mode: 'development',
@@ -48,16 +50,19 @@ if (TARGET !== 'build') {
         plugins: [
             // This makes everything reloaded when you change files
             new webpack.HotModuleReplacementPlugin(),
-            new webpack.DefinePlugin(constants.GLOBALS),
+            new webpack.DefinePlugin(Object.assign({}, constants.GLOBALS, {
+                'process.env': {
+                    SSR: process.env.SSR === 'true' || constants.GLOBALS.SSR,
+                },
+            })),
         ],
 
     });
 }
 else {
     // Production mode
-    console.log(chalk.green.bold('PRODUCTION MODE'));
-    module.exports = merge(common, {
-
+    console.log(logSymbols.info, chalk.green.bold('PRODUCTION MODE'));
+    module.exports = (openAnalyzer = false) => merge(common, {
         mode: 'production',
 
         output: {
@@ -78,6 +83,7 @@ else {
             new webpack.DefinePlugin(Object.assign({}, constants.GLOBALS, {
                 'process.env': {
                     NODE_ENV: JSON.stringify('production'),
+                    SSR: true,
                 },
             })),
             new UglifyJSPlugin(),
@@ -92,7 +98,8 @@ else {
             }]),
             new BundleAnalyzerPlugin({
                 analyzerMode: 'static',
-                openAnalyzer: false,
+                openAnalyzer ,
+                reportFilename: path.resolve(constants.DIST_DIR, 'bundle-report.html'),
             }),
         ],
 

@@ -1,5 +1,16 @@
 ## [Unreleased]
 
+## [1.2.0] (May 13 2019)
+### Features
+- Upgrade to Babel 7.
+- Migrate from `react-loadable` to `loadable-components`.
+- Webpack can handle statis CSS files.
+- Optimize logging.
+### Bug fixes:
+- Fix redux logging on production mode.
+- Fix no font to load.
+- Fix warning message when using hydrate without SSR.
+
 ## [1.1.0] (April 24 2019)
 ### Features
 - Write [CHANGELOG.md](#) the right way.
