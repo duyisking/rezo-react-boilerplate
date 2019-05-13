@@ -62,8 +62,7 @@ if (TARGET !== 'build') {
 else {
     // Production mode
     console.log(logSymbols.info, chalk.green.bold('PRODUCTION MODE'));
-    module.exports = merge(common, {
-
+    module.exports = (openAnalyzer = false) => merge(common, {
         mode: 'production',
 
         output: {
@@ -99,7 +98,7 @@ else {
             }]),
             new BundleAnalyzerPlugin({
                 analyzerMode: 'static',
-                openAnalyzer: false,
+                openAnalyzer ,
                 reportFilename: path.resolve(constants.DIST_DIR, 'bundle-report.html'),
             }),
         ],
