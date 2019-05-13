@@ -1,5 +1,6 @@
 const chalk = require('chalk');
 const logSymbols = require('log-symbols');
+const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -99,6 +100,7 @@ else {
             new BundleAnalyzerPlugin({
                 analyzerMode: 'static',
                 openAnalyzer: false,
+                reportFilename: path.resolve(constants.DIST_DIR, 'bundle-report.html'),
             }),
         ],
 

@@ -73,6 +73,7 @@ module.exports = {
             writeToDisk: {
                 filename: path.resolve(constants.DIST_DIR),
             },
+            outputAsset: false, // prevent creating of 2 files
         }),
     ],
 

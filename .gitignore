@@ -8,11 +8,12 @@ playground/*
 dist/index.js
 dist/index.js.map
 dist/loadable-stats.json
+dist/bundle-report.html
+dist/lint-report.html
 dist/public/*
 !dist/public/.gitkeep
 dist/templates/*
 !dist/templates/.gitkeep
-dist/lint-report.html
 
 # Logs
 logs/*
