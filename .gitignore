@@ -7,7 +7,7 @@ playground/*
 # Dist
 dist/index.js
 dist/index.js.map
-dist/react-loadable.json
+dist/loadable-stats.json
 dist/public/*
 !dist/public/.gitkeep
 dist/templates/*
