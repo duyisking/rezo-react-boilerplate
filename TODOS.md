@@ -1,6 +1,4 @@
 ## Features
-- Configure Webpack to bundle CSS files.
-- Migrate `react-loadable` to `@loadable/component`.
 - Write Documentation.
 - Integrate Docker.
 - Find a way to handle dev and prod templates.

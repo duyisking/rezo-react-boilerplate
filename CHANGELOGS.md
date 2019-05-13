@@ -1,4 +1,11 @@
 ## [Unreleased]
+
+## [1.2.0] (May 13 2019)
+### Features
+- Upgrade to Babel 7.
+- Migrate from `react-loadable` to `loadable-components`.
+- Webpack can handle statis CSS files.
+- Optimize logging.
 ### Bug fixes:
 - Fix redux logging on production mode.
 - Fix no font to load.
