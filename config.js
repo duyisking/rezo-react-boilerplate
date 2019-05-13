@@ -1,7 +1,7 @@
 module.exports = {
     // Specify which app to run if multiple apps are presented
     APP: 'app',
-    // The port which localhost will run on when starting the server
+    // The port on which the server listens upon starting the server
     PORT: 3000,
     // The port used by Webpack Dev Server
     WEBPACK_PORT: 8080,
