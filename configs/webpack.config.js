@@ -1,4 +1,5 @@
 const chalk = require('chalk');
+const logSymbols = require('log-symbols');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -17,7 +18,7 @@ const common = require('./webpack.common.config.js');
 
 if (TARGET !== 'build') {
     // Development mode
-    console.log(chalk.red.bold('DEVELOPMENT MODE'));
+    console.log(logSymbols.info, chalk.red.bold('DEVELOPMENT MODE'));
     module.exports = merge(common, {
 
         mode: 'development',
@@ -59,7 +60,7 @@ if (TARGET !== 'build') {
 }
 else {
     // Production mode
-    console.log(chalk.green.bold('PRODUCTION MODE'));
+    console.log(logSymbols.info, chalk.green.bold('PRODUCTION MODE'));
     module.exports = merge(common, {
 
         mode: 'production',

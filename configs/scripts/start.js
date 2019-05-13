@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const async = require('async');
 const chalk = require('chalk');
+const logSymbols = require('log-symbols');
 const clientConfig = require('../webpack.config');
 const serverConfig = require('../webpack.server.config');
 
@@ -42,10 +43,10 @@ async.waterfall([
 
             const info = stats.toJson();
             if (stats.hasErrors()) {
-                console.error(chalk.red(info.errors.join('\n')));
+                console.error(logSymbols.error, info.errors.join('\n'));
             }
             if (stats.hasWarnings()) {
-                console.warn(chalk.yellow(info.warnings.join('\n')));
+                console.warn(logSymbols.warning, info.warnings.join('\n'));
             }
 
             if (!called) {
@@ -58,7 +59,7 @@ async.waterfall([
     if (err) {
         console.error(err.stack || err);
         if (err.details) {
-            console.error(err.details);
+            console.error(chalk.red(err.details));
         }
         clientDevServer.close(() => console.log('Client closed.'));
         if (serverWatcher) {
