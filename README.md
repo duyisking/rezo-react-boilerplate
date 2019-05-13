@@ -21,8 +21,20 @@ To run the application, execute the command:
 ```
 npm start
 ```
+It will automatically open the app in a default browser.
 
-## Commands
+You can now start your project by editing the source code located at the `src` directory. Inside `src`, there are 2 folder `client` - code for the front-end, and `server` - code for the back-end. Based on your role, you choose which folder you will work on, or maybe both.
+
+## Documentation
+
+### Front-end
+Client-side source code contains app. An app has an `index.js` file which is the root file for the web application, you shouldn't edit this file unless you are sure what you are doing.
+
+The `components` folder holds most of the client-side source code that all React components reside. The root component of the React VDOM tree is App, it is import directly by `index.js`. This again should not be changed, you should write your components below this component.
+
+Additionally, the boilerplate has [styled-component](https://www.styled-components.com/) and [react-helmet](https://github.com/nfl/react-helmet) built-in features to handle CSS styling and head tags respectively. The GlobalStyle and Head components are the two built-in components. The first one is for handling with global CSS styles, e.g. setting fonts, heading styles, html and body styles. The second is for declaring tags to render inside head tag, such as title, meta, link, script, etc.
+
+### Commands
 - `npm start`
     - Run universal app with both client and server side running simultaneously. There are 2 modes, one do server-side rendering and one don't. By default, the non-SSR mode is chosen, you can change it by specify the environment variable SSR with the value of 'true' (e.g. `SSR=true npm start` on Linux).
     - Options:
@@ -44,14 +56,14 @@ npm start
 - `npm new-component <path> <name>`
   - Create a new component by name at a specific path relative to components directory. The path is relative to `components` directory. For example, `npm run new-component ./Pages Landing` will create the Landing component at the `components/Pages` directory.
 
-## Configurations
+### Configurations
 - `APP`: Specify which app to run if multiple apps are presented.
 - `PORT`: The port on which the server listens upon starting the server. This port is used on both development and production mode.
 - `WEBPACK_PORT`: The port used by Webpack Dev Server, used only on development mode.
 - `globals`: contains all global constants which you can use inside source code.
 - `babelrc`: Babel configuration for transpiling JS.
 
-## Dist structure
+### Dist structure
 The structure of a ready-for-production `dist` directory is:
 - `compilation-stats.json`: contains a single hash field when built, this hash is used for cache-busting.
 - `index.js`: server script which run the server.

@@ -1,5 +1,7 @@
 ## Features
 - Write Documentation.
+- SSR for styled-components
+- Use Storybook for React components.
 - Integrate Docker.
 - Find a way to handle dev and prod templates.
 - Write test for server.
