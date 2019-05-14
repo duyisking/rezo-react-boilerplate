@@ -1,5 +1,4 @@
 ## Features
-- Fix `loadable-components` SSR setup not completed.
 - Use Storybook for React components.
 - [WIP] Write Documentation.
 - Extend config.js configuration ability.

@@ -116,10 +116,12 @@ const renderWithSSR = (req, res, ejs, metadata, initState, status = 200, others 
 
     const helmet = Helmet.renderStatic();
 
+    const scriptTags = extractor.getScriptTags();
+
     const data = {
         html,
         styleTags,
-        bundles: [], // bundles
+        scriptTags,
         preloadedState: store.getState(),
         helmet,
         hash: compilationStats.hash,
