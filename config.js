@@ -5,6 +5,8 @@ module.exports = {
     PORT: 3000,
     // The port used by Webpack Dev Server
     WEBPACK_PORT: 8080,
+    // Server-side rendering mode
+    SSR: false,
     // This object contains all the constants that are available to all source files
     globals: {
         API_URL: 'http://localhost:3001',

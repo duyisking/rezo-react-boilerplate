@@ -112,7 +112,7 @@ const renderWithSSR = (req, res, ejs, metadata, initState, status = 200, others 
 
 let render = renderWithoutSSR; // eslint-disable-line import/no-mutable-exports
 if (process.env.SSR) {
-    console.log(chalk.blue('SERVER-SIDE RENDERING ON!'));
+    console.log(chalk.blue.bold('SERVER-SIDE RENDERING ON!'));
     render = renderWithSSR;
 }
 
