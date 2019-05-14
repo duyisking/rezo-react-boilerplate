@@ -1,12 +1,13 @@
 ## Features
-- Write Documentation.
-- SSR for styled-components
+- Separate Webpack configs for clarity.
+- SSR for styled-components.
 - Use Storybook for React components.
-- Integrate Docker.
-- Find a way to handle dev and prod templates.
-- Write test for server.
-- Hot reload for config.js
+- [WIP] Write Documentation.
 - Extend config.js configuration ability.
+- Integrate Docker.
+- Write test for server.
+- Find a way to handle dev and prod templates.
+- Hot reload for config.js.
 
 ## Bugs
 - Hot restart on server-side causes the webpage to crash because requests from the client to the server (webpack dev server) is proxied to the real server, which is reloading and not reply to incoming requests. Solutions:
