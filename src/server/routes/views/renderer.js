@@ -52,8 +52,11 @@ const renderWithoutSSR = (req, res, ejs, metadata, initState = {}, status = 200,
     });
     const data = {
         html: '',
-        bundles: [],
+        scriptTags: `<script src="/build/main.bundle${process.env.NODE_ENV === 'production'
+            ? `.${compilationStats.hash}` : ''}.js"></script>`,
         preloadedState: store.getState(),
+        // TODO: don't let these empty
+        styleTags: '',
         helmet: {
             htmlAttributes: '',
             title: '',
@@ -124,7 +127,6 @@ const renderWithSSR = (req, res, ejs, metadata, initState, status = 200, others 
         scriptTags,
         preloadedState: store.getState(),
         helmet,
-        hash: compilationStats.hash,
         others,
     };
 
