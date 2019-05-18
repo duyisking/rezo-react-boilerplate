@@ -8,7 +8,8 @@
     "test": "jest --config ./configs/jest.config.js",
     "build": "node configs/scripts/build.js",
     "node": "node configs/scripts/node.js",
-    "new-component": "node configs/scripts/new-component"
+    "new-component": "node configs/scripts/new-component",
+    "storybook": "start-storybook --config-dir configs/.storybook"
   },
   "license": "GPL-3.0",
   "dependencies": {
@@ -37,6 +38,7 @@
     "@babel/types": "^7.4.4",
     "@loadable/babel-plugin": "^5.8.0",
     "@loadable/webpack-plugin": "^5.7.1",
+    "@storybook/react": "^5.0.11",
     "autoprefixer": "^9.5.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
