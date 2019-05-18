@@ -12,7 +12,7 @@ const {
 
 program
     .option('-o, --open', 'Automatically open bundle analyzer report in default browser')
-    .option('-s, --ssr', 'Turn on server-side rendering')
+    .option('-n, --no-ssr', 'Turn off server-side rendering')
     .parse(process.argv);
 
 const clientCompiler = webpack(clientConfig({ SSR: program.ssr, openAnalyzer: program.open }));
