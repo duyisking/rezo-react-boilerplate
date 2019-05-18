@@ -5,7 +5,7 @@ const logSymbols = require('log-symbols');
 const RouteHandler = require('./routes').default;
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || process.env.PORT_STATIC;
 
 app.use(express.static(path.join(__dirname, '../static')));
 app.set('views', path.join(__dirname, '../src/server/templates/dev'));
