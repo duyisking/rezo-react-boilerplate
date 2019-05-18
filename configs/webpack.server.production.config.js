@@ -22,7 +22,7 @@ module.exports = ({ SSR = true }) => merge(server, {
             'process.env': {
                 PORT: config.PORT,
                 NODE_ENV: JSON.stringify('production'),
-                SSR: SSR || config.SSR,
+                SSR,
             },
         })),
         new CleanWebpackPlugin([constants.PROD_TEMPLATES_DIR], {

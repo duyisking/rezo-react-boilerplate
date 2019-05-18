@@ -9,8 +9,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const constants = require('./constants.js');
 
-const { config } = constants;
-
 // Get common config
 const { client } = require('./webpack.common.config.js');
 
@@ -38,7 +36,7 @@ module.exports = ({ SSR = true, openAnalyzer = false }) => merge(client, {
         new webpack.DefinePlugin(Object.assign({}, constants.GLOBALS, {
             'process.env': {
                 NODE_ENV: JSON.stringify('production'),
-                SSR: SSR || config.SSR,
+                SSR,
             },
         })),
         new UglifyJSPlugin(),
