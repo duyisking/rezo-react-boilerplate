@@ -4,19 +4,20 @@ const WebpackDevServer = require('webpack-dev-server');
 const async = require('async');
 const chalk = require('chalk');
 const logSymbols = require('log-symbols');
-const clientConfig = require('../webpack.config');
-const serverConfig = require('../webpack.server.config');
-
-const clientCompiler = webpack(clientConfig);
-const serverCompiler = webpack(serverConfig);
-const { devServer } = clientConfig;
-let clientDevServer;
-let serverWatcher;
-let called = false;
+const clientConfig = require('../webpack.client.development.config');
+const serverConfig = require('../webpack.server.development.config');
 
 program
     .option('-l, --long', 'Verbose stats')
+    .option('-s, --ssr', 'Turn on server-side rendering')
     .parse(process.argv);
+
+const clientCompiler = webpack(clientConfig({ SSR: program.ssr }));
+const serverCompiler = webpack(serverConfig({ SSR: program.ssr }));
+const { devServer } = clientConfig({ SSR: program.ssr });
+let clientDevServer;
+let serverWatcher;
+let called = false;
 
 async.waterfall([
     (callback) => {

@@ -2,6 +2,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { ChunkExtractor } from '@loadable/server';
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -15,6 +16,7 @@ import {
 } from 'reducers';
 import App from 'components/App';
 import Head from 'components/Head';
+import GlobalStyle from 'components/GlobalStyle';
 /* eslint-enable import/no-unresolved */
 
 import compilationStats from '../../../../dist/compilation-stats.json';
@@ -50,8 +52,11 @@ const renderWithoutSSR = (req, res, ejs, metadata, initState = {}, status = 200,
     });
     const data = {
         html: '',
-        bundles: [],
+        scriptTags: `<script src="/build/main.bundle${process.env.NODE_ENV === 'production'
+            ? `.${compilationStats.hash}` : ''}.js"></script>`,
         preloadedState: store.getState(),
+        // TODO: don't let these empty
+        styleTags: '',
         helmet: {
             htmlAttributes: '',
             title: '',
@@ -82,27 +87,46 @@ const renderWithSSR = (req, res, ejs, metadata, initState, status = 200, others 
         ...initState,
         metadata,
     });
+    const sheet = new ServerStyleSheet();
 
     const jsx = extractor.collectChunks(
-        <StaticRouter location={req.url} context={staticContext}>
-            <Provider store={store}>
-                <>
-                    <Head />
-                    <App />
-                </>
-            </Provider>
-        </StaticRouter>,
+        <StyleSheetManager sheet={sheet.instance}>
+            <StaticRouter location={req.url} context={staticContext}>
+                <Provider store={store}>
+                    <>
+                        <Head />
+                        <GlobalStyle />
+                        <App />
+                    </>
+                </Provider>
+            </StaticRouter>
+        </StyleSheetManager>,
     );
-    const html = renderToString(jsx);
+
+    let html = '';
+    let styleTags = '';
+    try {
+        html = renderToString(jsx);
+        styleTags = sheet.getStyleTags();
+    }
+    catch (error) {
+        // handle error
+        console.error(error);
+    }
+    finally {
+        sheet.seal();
+    }
 
     const helmet = Helmet.renderStatic();
 
+    const scriptTags = extractor.getScriptTags();
+
     const data = {
         html,
-        bundles: [], // bundles
+        styleTags,
+        scriptTags,
         preloadedState: store.getState(),
         helmet,
-        hash: compilationStats.hash,
         others,
     };
 
@@ -112,7 +136,7 @@ const renderWithSSR = (req, res, ejs, metadata, initState, status = 200, others 
 
 let render = renderWithoutSSR; // eslint-disable-line import/no-mutable-exports
 if (process.env.SSR) {
-    console.log(chalk.blue('SERVER-SIDE RENDERING ON!'));
+    console.log(chalk.blue.bold('SERVER-SIDE RENDERING ON!'));
     render = renderWithSSR;
 }
 

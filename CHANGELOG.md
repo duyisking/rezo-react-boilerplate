@@ -1,5 +1,15 @@
 ## [Unreleased]
 
+## [1.3.0] (May 18 2019)
+### Features
+- Write documentation.
+- Beautify initial page UI.
+- Separate Webpack configurations for better clarity.
+- Implement SSR for `styled-components`.
+- Add options for `build` script.
+### Bug fixes:
+- Fix `loadable-components` SSR setup not completed.
+
 ## [1.2.0] (May 13 2019)
 ### Features
 - Upgrade to Babel 7.

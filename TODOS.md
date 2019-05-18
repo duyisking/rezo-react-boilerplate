@@ -1,12 +1,14 @@
 ## Features
-- Write Documentation.
-- SSR for styled-components
 - Use Storybook for React components.
-- Integrate Docker.
-- Find a way to handle dev and prod templates.
-- Write test for server.
-- Hot reload for config.js
+- [WIP] Write Documentation.
 - Extend config.js configuration ability.
+- Integrate Docker.
+- Write test for server.
+- Find a way to handle dev and prod templates.
+- Hot reload for config.js.
+
+## Future changes
+- Currently, on production build, `PORT` and `SSR` environment variables are constant variables specified via Webpack's DefinePlugin. When deploying, there are situations where we need to change these variables, for example: port conflict between applications or SSR function need to be disabled because of errors. The current behavior is expected to change in version 1.4.0, where we can directly specify these environment variable after the server script is built.
 
 ## Bugs
 - Hot restart on server-side causes the webpage to crash because requests from the client to the server (webpack dev server) is proxied to the real server, which is reloading and not reply to incoming requests. Solutions:

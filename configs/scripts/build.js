@@ -3,8 +3,8 @@ const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
 const async = require('async');
-const clientConfig = require('../webpack.config');
-const serverConfig = require('../webpack.server.config');
+const clientConfig = require('../webpack.client.production.config');
+const serverConfig = require('../webpack.server.production.config');
 const constants = require('../constants');
 const {
     errorHandler,
@@ -12,10 +12,11 @@ const {
 
 program
     .option('-o, --open', 'Automatically open bundle analyzer report in default browser')
+    .option('-n, --no-ssr', 'Turn off server-side rendering')
     .parse(process.argv);
 
-const clientCompiler = webpack(clientConfig(program.open));
-const serverCompiler = webpack(serverConfig);
+const clientCompiler = webpack(clientConfig({ SSR: program.ssr, openAnalyzer: program.open }));
+const serverCompiler = webpack(serverConfig({ SSR: program.ssr }));
 
 async.series([
     (callback) => {
