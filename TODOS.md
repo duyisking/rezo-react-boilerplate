@@ -1,7 +1,7 @@
 ## Features
-- Integrate Docker.
-- [WIP] Write Documentation.
 - Write test for server.
+- [WIP] Write Documentation
+  - Node version requirement
 - Integrate a sitemap generator.
 - Extend config.js configuration ability.
 - Find a way to handle dev and prod templates.
