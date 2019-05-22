@@ -1,6 +1,6 @@
 {
   "name": "universal-react-app",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "description": "A boilerplate to create Universal React Application.",
   "scripts": {
     "start": "node configs/scripts/start.js",
