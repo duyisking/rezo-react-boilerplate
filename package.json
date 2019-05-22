@@ -11,7 +11,7 @@
     "new-component": "node configs/scripts/new-component",
     "storybook": "start-storybook --config-dir configs/.storybook"
   },
-  "license": "GPL-3.0",
+  "license": "MIT",
   "dependencies": {
     "@loadable/component": "^5.9.0",
     "@loadable/server": "^5.9.0",
