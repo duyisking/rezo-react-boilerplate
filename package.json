@@ -1,6 +1,6 @@
 {
   "name": "universal-react-app",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "description": "A boilerplate to create Universal React Application.",
   "scripts": {
     "start": "node configs/scripts/start.js",
@@ -8,9 +8,10 @@
     "test": "jest --config ./configs/jest.config.js",
     "build": "node configs/scripts/build.js",
     "node": "node configs/scripts/node.js",
-    "new-component": "node configs/scripts/new-component"
+    "new-component": "node configs/scripts/new-component",
+    "storybook": "start-storybook --config-dir configs/.storybook"
   },
-  "license": "GPL-3.0",
+  "license": "MIT",
   "dependencies": {
     "@loadable/component": "^5.9.0",
     "@loadable/server": "^5.9.0",
@@ -20,6 +21,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
+    "log-symbols": "^3.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -37,6 +39,7 @@
     "@babel/types": "^7.4.4",
     "@loadable/babel-plugin": "^5.8.0",
     "@loadable/webpack-plugin": "^5.7.1",
+    "@storybook/react": "^5.0.11",
     "autoprefixer": "^9.5.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
@@ -58,7 +61,6 @@
     "ignore-loader": "^0.1.2",
     "jest": "^23.6.0",
     "json-loader": "^0.5.7",
-    "log-symbols": "^3.0.0",
     "mini-css-extract-plugin": "^0.4.5",
     "opn": "^5.5.0",
     "optimize-css-assets-webpack-plugin": "^4.0.3",

@@ -1,9 +1,9 @@
 ## Features
-- Use Storybook for React components.
-- [WIP] Write Documentation.
-- Extend config.js configuration ability.
-- Integrate Docker.
 - Write test for server.
+- [WIP] Write Documentation
+  - Node version requirement
+- Integrate a sitemap generator.
+- Extend config.js configuration ability.
 - Find a way to handle dev and prod templates.
 - Hot reload for config.js.
 

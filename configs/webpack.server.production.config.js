@@ -19,11 +19,9 @@ module.exports = ({ SSR = true }) => merge(server, {
 
     plugins: [
         new webpack.DefinePlugin(Object.assign({}, constants.GLOBALS, {
-            'process.env': {
-                PORT: config.PORT,
-                NODE_ENV: JSON.stringify('production'),
-                SSR,
-            },
+            'process.env.PORT_STATIC': config.PORT,
+            'process.env.NODE_ENV': JSON.stringify('production'),
+            'process.env.SSR': SSR,
         })),
         new CleanWebpackPlugin([constants.PROD_TEMPLATES_DIR], {
             root: constants.WORK_DIR,

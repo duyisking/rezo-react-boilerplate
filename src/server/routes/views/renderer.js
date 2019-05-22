@@ -21,7 +21,7 @@ import GlobalStyle from 'components/GlobalStyle';
 
 import compilationStats from '../../../../dist/compilation-stats.json';
 
-const statsFile = path.resolve('./dist/loadable-stats.json');
+const statsFile = path.resolve(__dirname, './loadable-stats.json');
 const extractor = new ChunkExtractor({ statsFile });
 
 /**
