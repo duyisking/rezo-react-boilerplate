@@ -1,5 +1,17 @@
 ## [Unreleased]
 
+## [1.4.0] (May 22 2019)
+### Features
+- Integrate Storybook.js.
+- Integrate Docker.
+### Changes
+- Allow to change PORT after building on production mode.
+- Change license from GPL to MIT.
+- Update version in package.json.
+### Bug fixes
+- Fix path of loadable-stats.json in renderer.js.
+
+
 ## [1.3.0] (May 18 2019)
 ### Features
 - Write documentation.
