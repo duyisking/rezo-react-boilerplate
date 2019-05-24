@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [1.4.1] (May 24 2019)
+### Bug fixes
+- Fix tests failed due to missing of babel-jest configs.
+
 ## [1.4.0] (May 22 2019)
 ### Features
 - Integrate Storybook.js.
