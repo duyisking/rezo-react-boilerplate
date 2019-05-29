@@ -1,4 +1,9 @@
 ## [Unreleased]
+### Features
+- Update README.
+- Add coverage for Jest test.
+### Changes
+- Simplify directory structure.
 
 ## [1.4.1] (May 24 2019)
 ### Bug fixes
