@@ -38,7 +38,7 @@ Client-side source code contains app. An app has an `index.js` file which is the
 
 The `components` folder holds most of the client-side source code that all React components reside. The root component of the React VDOM tree is App, it is import directly by `index.js`. This again should not be changed, you should write your components below this component.
 
-Additionally, the boilerplate has [styled-component](https://www.styled-components.com/) and [react-helmet](https://github.com/nfl/react-helmet) built-in features to handle CSS styling and head tags respectively. The [GlobalStyle](src/client/app/components/GlobalStyle/GlobalStyle.jsx) and [Head](src/client/app/components/Head/Head.jsx) components are the two built-in components. The first one is for handling with global CSS styles, e.g. setting fonts, heading styles, html and body styles. The second is for declaring tags to render inside head tag, such as title, meta, link, script, etc.
+Additionally, the boilerplate has [styled-component](https://www.styled-components.com/) and [react-helmet](https://github.com/nfl/react-helmet) built-in features to handle CSS styling and head tags respectively. The [GlobalStyle](src/app/components/GlobalStyle/GlobalStyle.jsx) and [Head](src/app/components/Head/Head.jsx) components are the two built-in components. The first one is for handling with global CSS styles, e.g. setting fonts, heading styles, html and body styles. The second is for declaring tags to render inside head tag, such as title, meta, link, script, etc.
 
 ### CLI Commands
 These CLI commands will help you to do various tasks for you and you don't have to do anything else.
@@ -127,13 +127,10 @@ Added in: v1.2.0
 Babel configuration for transpiling JS. It is used to replace `.babelrc` file.
 
 ### Dist structure
-The structure of a ready-for-production `dist` directory is:
-- `compilation-stats.json`: contains a single hash field when built, this hash is used for cache-busting.
-- `index.js`: server script which run the server.
-- `index.js.map`: server script's map file, for debugging.
-- `lint-report.html`: eslint report, show error and warning in code.
-- `loadable-stats.json`: stats file created by `loadable-components`, used for SSR.
-- `public`: contains all files which are exposed to the public when running `index.js`.
-  - `build`: contains all build file, including js and css and map files.
+The `dist` directory contains all files for deployment. It includes both client-side and server-side code. It may also contains reports for ESlint and [Bundle Analyzer Plugin](https://github.com/webpack-contrib/webpack-bundle-analyzer).
+There are some important files and directories in a ready-for-production `dist` directory:
+- `index.js`: Node server-side script to run the server.
+- `public`: root directory for serving static files when running `index.js`.
+  - `build`: contains all client-side files built from the App by Webpack.
   - `js`: contains common static JavaScript files.
 - `templates`: contains EJS template files to render the HTML.
