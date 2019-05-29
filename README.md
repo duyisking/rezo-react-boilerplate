@@ -30,6 +30,7 @@ You can now start your project by editing the source code located at the `src` d
 Inside `src`, there are 2 directory `client` - source code of the front-end, and `server` - source code of the back-end. Based on your role, you choose which folder you will work on, or maybe both.
 
 ---
+---
 ## Documentation
 
 ### Front-end Introduction
@@ -41,22 +42,35 @@ Additionally, the boilerplate has [styled-component](https://www.styled-componen
 
 ### CLI Commands
 These CLI commands will help you to do various tasks for you and you don't have to do anything else.
+
 #### `npm start`
 - Start universal app in development mode. By default, server-side rendering is disabled. But you can enable SSR either with the `-s` option or by using the `SSR` option from the configuration file.
 - Options:
   - `-h, --help`: output usage information.
   - `-l, --long`: Verbose stats.
   - `-s, --ssr`: Turn on server-side rendering.
+
 #### `npm run lint`
 - Run ESLint and display report. After running, it created an HTML file inside `dist` named `lint-report.html`. You can open it in a browser to view the result.
+
 #### `npm test`
-- Run Jest test.
+- Run Jest test. Coverage will be reported in HTML format. It creates `coverage` directory inside this repository.
+
+#### `npm run test:open`
+- Added in: v1.5.0
+- Open coverage reports in the default browser.
+
+#### `npm run test:clean`
+- Added in: v1.5.0
+- Clean coverage reports. It removes `coverage` directory from this repository.
+
 #### `npm run build`
 - Build universal app on production mode. This command will output compiled files and all other resources to the `dist` folder. This command enables SSR by default but you can turn it off with the option `--no-ssr` following this command.
 - Options:
     - `-h, --help`: output usage information.
     - `-o, --open`: Automatically open bundle analyzer report in default browser.
     - `-n, --no-ssr`: Turn off server-side rendering.
+
 #### `npm run node`
 - Run the node process of the production server. Must be called after running `build`.
 #### `npm run new-component <path> <name>`
@@ -66,6 +80,7 @@ These CLI commands will help you to do various tasks for you and you don't have 
   - `name`: Required. Name of the component.
 - For example, `npm run new-component ./Pages Landing` will create the Landing component at the `components/Pages` directory.
 
+---
 ### Configurations
 Configurations are needed for customizing your project. The file `config.js` provide various of configurations to make your project more flexible and manageable.
 #### `APP`
