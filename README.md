@@ -86,7 +86,8 @@ Configurations are needed for customizing your project. The file `config.js` pro
 #### `APP`
 [string]
 
-Added in: v0.1.0
+Added in: v0.1.0.
+**Removed in: v1.5.0**
 
 Specify which app to run if multiple apps are presented.
 
