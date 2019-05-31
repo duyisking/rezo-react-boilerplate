@@ -1,5 +1,17 @@
 ## [Unreleased]
 
+## [1.5.0 June 1 2019]
+### Features
+- Update README.
+- Add coverage for Jest test.
+### Changes
+- Simplify directory structure.
+- Load fonts via Head component.
+
+## [1.4.2] (May 31 2019)
+### Changes
+- Remove Axios.
+
 ## [1.4.1] (May 24 2019)
 ### Bug fixes
 - Fix tests failed due to missing of babel-jest configs.

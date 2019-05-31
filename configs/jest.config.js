@@ -6,6 +6,12 @@ const config = require('../config.js');
 const { APP } = config;
 
 module.exports = {
+    collectCoverage: true,
+    coverageReporters: [
+        'json',
+        'html',
+    ],
+
     moduleDirectories: [
         'node_modules',
         `<rootDir>/src/client/${APP}`,

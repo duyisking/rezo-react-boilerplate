@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const program = require('commander');
-const { APP } = require('../../../config');
+const { APP_DIR } = require('../../constants');
 const {
     indexJSContent,
     componentContent,
@@ -17,7 +17,7 @@ program
     .arguments('<dir> <name>')
     .option('-c, --class', 'Class component')
     .action((directory, component, cmd) => {
-        const dirPath = path.join(__dirname, `../../../src/client/${APP}/components`, directory);
+        const dirPath = path.resolve(APP_DIR, 'components', directory);
         const componentDirectory = path.resolve(dirPath, component);
 
         if (!fs.existsSync(dirPath)) {

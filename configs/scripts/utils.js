@@ -1,3 +1,4 @@
+const logSymbols = require('log-symbols');
 const chalk = require('chalk');
 
 const { error } = console;
@@ -7,9 +8,9 @@ const { error } = console;
  */
 const errorHandler = (...messages) => {
     messages.forEach(message => (
-        error(chalk.red(message))
+        error(logSymbols.error, chalk.red(message))
     ));
-    error(chalk.red('Process failed.'));
+    error(logSymbols.error, chalk.red('Process failed.'));
     process.exit(0);
 };
 

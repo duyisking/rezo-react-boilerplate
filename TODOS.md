@@ -1,4 +1,5 @@
 ## Features
+- Allow front-end side to decide how to load fonts.
 - Write test for server.
 - [WIP] Write Documentation
   - Node version requirement
@@ -8,7 +9,7 @@
 - Hot reload for config.js.
 
 ## Future changes
-- Currently, on production build, `PORT` and `SSR` environment variables are constant variables specified via Webpack's DefinePlugin. When deploying, there are situations where we need to change these variables, for example: port conflict between applications or SSR function need to be disabled because of errors. The current behavior is expected to change in version 1.4.0, where we can directly specify these environment variable after the server script is built.
+- **Prevent confusion when resolving path in server side** - In server code, when resolving paths by `path.join` or `path.resolve` or anything relates, the context of the server code (`__dirname`) is always in `dist`. This is because when Webpack bundles the server code, it outputs to this directory and then runs the node process using that output file. But in a user perspective, `__dirname` is the directory of the current module. So this may cause misunderstanding when resolving paths if the user does not know the mechanism. The problem doesn't happen for `import` and `require` because they include files into the bundle by Webpack. To solve it, we could change option `node` in the server's Webpack configuration file.
 
 ## Bugs
 - Hot restart on server-side causes the webpage to crash because requests from the client to the server (webpack dev server) is proxied to the real server, which is reloading and not reply to incoming requests. Solutions:
