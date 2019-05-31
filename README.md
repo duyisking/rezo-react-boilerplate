@@ -161,5 +161,5 @@ docker run -p <public-port>:<node-port> -d <tag-name>
 docker run -p <public-port>:<node-port> -d -e PORT=<node-port> <tag-name>
 # Ex: docker run -p 443:4000 -d -e PORT=4000 URA
 ```
-- `<public-port>`: port exposed to the host machine.
+- `public-port`: port exposed to the host machine.
 - `node-port`: port used by our app.
