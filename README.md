@@ -1,7 +1,5 @@
-<center>
 <h1>Universal React App</h1>
 A boilerplate to create Universal React Application.
-</center>
 
 ## Features
 - **React application + Express server** - You can build Front-end and Back-end simultaneously, perfect for Full-stack developers.
@@ -30,7 +28,15 @@ You can now start your project by editing the source code located at the `src` d
 Inside `src`, there are 2 directory `client` - source code of the front-end, and `server` - source code of the back-end. Based on your role, you choose which folder you will work on, or maybe both.
 
 ---
+## Table of Contents
+- [Documentation](#documentation)
+  - [Front-end Introduction](#front-end-introduction)
+  - [CLI Commands](#cli-commands)
+  - [Configurations](#configurations)
+  - [Dist structure](#dist-structure)
+  - [Build a Docker image](#build-a-docker-image)
 ---
+
 ## Documentation
 
 ### Front-end Introduction
@@ -92,11 +98,11 @@ Added in: v0.1.0.
 Specify which app to run if multiple apps are presented.
 
 #### `PORT`
-Added in: v1.0.0
-
 [number]
 
-The port on which the server listens upon starting the server. This port is used on both development and production mode.
+Added in: v1.0.0
+
+The port number on which the Node.js server listens upon startup. This port is used on both development and production mode. Although this config variable gives the server a static port number, we can still change it by setting the `PORT` environment variable.
 
 #### `WEBPACK_PORT`
 [number]
@@ -110,7 +116,7 @@ The port used by Webpack Dev Server, used only on development mode.
 
 Added in: v1.3.0
 
-Indicate server-side rendering mode, used only on development mode. The `build` command does not care about this option to prevent from accidentally turning SSR off . On development mode, SSR would be enabled if either this option is `true` or by using the `-s` option.
+Indicate server-side rendering mode, used only on development mode. The [`build`](#npm-run-build) command does not care about this option to prevent accidentally turning SSR off. On development mode, SSR would be enabled if either this option is `true` or by using the `-s` option.
 
 #### `globals`
 [Object]
@@ -134,3 +140,26 @@ There are some important files and directories in a ready-for-production `dist` 
   - `build`: contains all client-side files built from the App by Webpack.
   - `js`: contains common static JavaScript files.
 - `templates`: contains EJS template files to render the HTML.
+
+### Build a Docker image
+Docker is used for containerizing all of the production assets into a single image and then deploying to the server.
+
+To build a Docker image, you first have Docker installed on your machine or your build environment. The installation and documentation can be found [here](https://docs.docker.com/install/) and [here](https://docs.docker.com/get-started/). We recommend you to first look at these resources unless you have already used Docker.
+
+The Docker image for our app will include all assets from the `dist` directory and `package.json`. The `package.json` is included to install all non-dev dependencies from NPM, these dependencies are necessary to run our Node.js server.
+
+Here is a list of example CLI command to build and run our app using Docker:
+```bash
+# Build the app
+docker build -t <tag-name> .
+# Ex: docker build -t URA .
+
+# Run the app
+docker run -p <public-port>:<node-port> -d <tag-name>
+# Ex: docker run -p 80:3000 -d URA
+# Using environment variable
+docker run -p <public-port>:<node-port> -d -e PORT=<node-port> <tag-name>
+# Ex: docker run -p 443:4000 -d -e PORT=4000 URA
+```
+- `<public-port>`: port exposed to the host machine.
+- `node-port`: port used by our app.
