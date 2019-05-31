@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 export function Head(props) {
     const {
@@ -12,6 +13,13 @@ export function Head(props) {
         type,
         imageUrl,
     } = props;
+
+    const WebFontConfig = {
+        google: {
+            families: ['Roboto'],
+        },
+    };
+
     return (
         <Helmet>
             <meta charSet="utf-8" />
@@ -28,9 +36,22 @@ export function Head(props) {
             <title>{title}</title>
             <link rel="canonical" href={canonical} />
             <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" sizes="16x16" />
+            <script type="application/javascript">
+                {`WebFontConfig = ${JSON.stringify(WebFontConfig)}`}
+            </script>
         </Helmet>
     );
 }
+
+Head.propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    keywords: PropTypes.string.isRequired,
+    canonical: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+};
 
 export default connect(
     state => ({
