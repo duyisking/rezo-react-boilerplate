@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const path = require('path');
 const opn = require('opn');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackShellPlugin = require('./plugin/webpack/webpack-shell-plugin.js');
 const constants = require('./constants.js');
 
@@ -34,6 +36,15 @@ module.exports = ({ SSR = false }) => merge(server, {
             raw: true,
             entryOnly: false,
         }),
+        new CleanWebpackPlugin([constants.DIST_TEMPLATES_DIR], {
+            root: constants.WORK_DIR,
+            exclude: ['.gitkeep'],
+            verbose: false,
+        }),
+        new CopyWebpackPlugin([{
+            from: path.resolve(constants.SRC_TEMPLATES_DIR, 'dev'),
+            to: constants.DIST_TEMPLATES_DIR,
+        }]),
         new WebpackShellPlugin({
             path: path.resolve(constants.DIST_DIR, 'index.js'),
             afterFirstEmit: (proc) => {

@@ -23,13 +23,13 @@ module.exports = ({ SSR = true }) => merge(server, {
             'process.env.NODE_ENV': JSON.stringify('production'),
             'process.env.SSR': SSR,
         })),
-        new CleanWebpackPlugin([constants.PROD_TEMPLATES_DIR], {
+        new CleanWebpackPlugin([constants.DIST_TEMPLATES_DIR], {
             root: constants.WORK_DIR,
             exclude: ['.gitkeep'],
         }),
         new CopyWebpackPlugin([{
-            from: path.resolve(constants.DEV_TEMPLATES_DIR, 'prod'),
-            to: constants.PROD_TEMPLATES_DIR,
+            from: path.resolve(constants.SRC_TEMPLATES_DIR, 'prod'),
+            to: constants.DIST_TEMPLATES_DIR,
         }]),
     ],
 
