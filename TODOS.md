@@ -1,8 +1,10 @@
 ## Features
-- Allow front-end side to decide how to load fonts.
 - Write test for server.
+- Write promts for new-component.js and build.js
+- Write setup.js
 - [WIP] Write Documentation
   - Node version requirement
+  - Code migration.
 - Integrate a sitemap generator.
 - Extend config.js configuration ability.
 - Find a way to handle dev and prod templates.
