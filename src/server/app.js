@@ -1,0 +1,19 @@
+import express from 'express';
+import path from 'path';
+import RouteHandler from './routes';
+
+const app = express();
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'public')));
+}
+else {
+    app.use(express.static(path.join(__dirname, '../static')));
+}
+app.set('views', path.join(__dirname, 'templates'));
+
+app.set('view engine', 'ejs');
+
+RouteHandler(app);
+
+export default app;

@@ -1,10 +1,6 @@
 /* eslint max-len: ["error", { "code": 100, "comments": 200 }] */
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
-const config = require('../config.js');
-
-const { APP } = config;
-
 module.exports = {
     collectCoverage: true,
     coverageReporters: [
@@ -14,7 +10,7 @@ module.exports = {
 
     moduleDirectories: [
         'node_modules',
-        `<rootDir>/src/client/${APP}`,
+        '<rootDir>/src/app',
     ],
 
     moduleFileExtensions: ['js', 'jsx'],
