@@ -7,6 +7,7 @@ module.exports = {
         'json',
         'html',
     ],
+    coverageDirectory: '<rootDir>/coverage/server',
 
     moduleDirectories: [
         'node_modules',
@@ -23,6 +24,8 @@ module.exports = {
     rootDir: '../',
 
     setupFilesAfterEnv: ['<rootDir>/configs/enzyme.setup.js'],
+
+    testEnvironment: 'node',
 
     testMatch: [
         '**/server/**/test/**/*.js',

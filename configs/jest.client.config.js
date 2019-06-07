@@ -7,6 +7,7 @@ module.exports = {
         'json',
         'html',
     ],
+    coverageDirectory: '<rootDir>/coverage/client',
 
     moduleDirectories: [
         'node_modules',
