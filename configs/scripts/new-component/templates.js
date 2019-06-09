@@ -47,8 +47,23 @@ describe('${component}', () => {
 });
 `;
 
+/**
+ * Component test file content
+ * @param {*} component - Component name
+ */
+const storyBookContent = component => `import React from 'react';
+import { storiesOf } from '@storybook/react';
+import ${component} from './${component}';
+
+storiesOf('${component}', module)
+    .add('Initial', () => (
+        <${component} />
+    ));
+`;
+
 module.exports = {
     indexJSContent,
     componentContent,
     testContent,
+    storyBookContent,
 };
