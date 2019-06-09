@@ -1,7 +1,7 @@
 ## Features
-- Write test for server.
 - Write promts for new-component.js and build.js
 - Write setup.js
+- Suport async, await.
 - [WIP] Write Documentation
   - Node version requirement
   - Code migration.
