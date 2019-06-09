@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render as expected 1`] = `
+.c0 {
+  padding: 150px 0;
+  background: linear-gradient(45deg,rgba(170,0,255,1) 0%,rgba(25,117,210,1) 50%,rgba(32,148,243,1) 100%);
+}
+
+.c1 {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  -webkit-animation: eMLfYp 1s ease-in-out;
+  animation: eMLfYp 1s ease-in-out;
+}
+
+.c2 {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  -webkit-animation: eMLfYp 1s ease-in-out;
+  animation: eMLfYp 1s ease-in-out;
+  font-size: 1rem;
+}
+
+<div
+  className="c0"
+>
+  <h1
+    className="c1"
+  >
+    Hello World!
+  </h1>
+  <h2
+    className="c2"
+  >
+    Let‘s build something great
+  </h2>
+</div>
+`;

@@ -1,13 +1,14 @@
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
+import 'jest-styled-components';
 
 import App from './App';
 
 describe('App', () => {
-    const wrapper = shallow(<App />);
+    const tree = renderer.create(<App />).toJSON();
 
-    it('', () => {
-        //
+    it('should render as expected', () => {
+        expect(tree).toMatchSnapshot();
     });
 });
