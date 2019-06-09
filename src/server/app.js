@@ -6,10 +6,12 @@ const app = express();
 
 // check if using Jest
 if (process.env.JEST_WORKER_ID !== undefined) {
+    // context: src/server/
     app.use(express.static(path.join(__dirname, '../../static')));
     app.set('views', path.join(__dirname, 'templates/dev'));
 }
 else {
+    // context: dist/
     if (process.env.NODE_ENV === 'production') {
         app.use(express.static(path.join(__dirname, 'public')));
     }

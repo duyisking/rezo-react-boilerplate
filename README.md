@@ -59,12 +59,36 @@ These CLI commands will help you to do various tasks for you and you don't have 
 #### `npm run lint`
 - Run ESLint and display report. After running, it created an HTML file inside `dist` named `lint-report.html`. You can open it in a browser to view the result.
 
+#### `npm run test:client`
+- Added in: v1.6.0
+- Run Jest test on client-side. Coverage will be reported in HTML format, placed at `coverage/client` inside this repository.
+
+#### `npm run test:server`
+- Added in: v1.6.0
+- Run Jest test on server-side. Coverage will be reported in HTML format, placed at `coverage/server` inside this repository.
+
 #### `npm test`
-- Run Jest test. Coverage will be reported in HTML format. It creates `coverage` directory inside this repository.
+- Run Jest test on both client-side and server-side. It run 2 command `npm run test:client` and `npm run test:server` sequentially.
+
+#### `npm run test:open:client`
+- Added in: v1.6.0
+- Open client-side coverage reports in the default browser.
+
+#### `npm run test:open:server`
+- Added in: v1.6.0
+- Open server-side coverage reports in the default browser.
 
 #### `npm run test:open`
 - Added in: v1.5.0
-- Open coverage reports in the default browser.
+- Open client-side coverage reports in the default browser. A short version of `npm run test:open:client`!
+
+#### `npm run test:clean:client`
+- Added in: v1.6.0
+- Clean client-side coverage reports. It removes `coverage/client` directory from this repository.
+
+#### `npm run test:clean:server`
+- Added in: v1.6.0
+- Clean server-side coverage reports. It removes `coverage/server` directory from this repository.
 
 #### `npm run test:clean`
 - Added in: v1.5.0
