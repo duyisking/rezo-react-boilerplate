@@ -31,6 +31,11 @@ module.exports = {
         '**/?(*.)+(spec|test).js?(x)',
     ],
 
+    testPathIgnorePatterns: [
+        '/node_modules/',
+        '/configs/',
+    ],
+
     transform: {
         '^.+\\.jsx?$': '<rootDir>/configs/jest.transform.js',
     },

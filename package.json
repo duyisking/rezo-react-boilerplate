@@ -5,9 +5,9 @@
   "scripts": {
     "start": "node configs/scripts/start.js",
     "lint": "node configs/scripts/lint.js",
-    "test": "npm run test:client && npm run test:server",
     "test:client": "jest --config ./configs/jest.client.config.js",
     "test:server": "jest --config ./configs/jest.server.config.js",
+    "test": "node configs/scripts/test.js",
     "test:open": "node configs/scripts/test-open.js",
     "test:clean": "rimraf ./coverage",
     "build": "node configs/scripts/build.js",
