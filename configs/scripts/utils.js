@@ -1,7 +1,28 @@
 const logSymbols = require('log-symbols');
 const chalk = require('chalk');
 
-const { error } = console;
+const {
+    error,
+    log,
+} = console;
+
+/**
+ * @param {string[]} messages - Message of the log
+ */
+const logHandler = (...messages) => {
+    messages.forEach(message => (
+        log(logSymbols.info, message)
+    ));
+};
+
+/**
+ * @param {string[]} messages - Message to log
+ */
+const successHandler = (...messages) => {
+    messages.forEach(message => (
+        log(logSymbols.success, message)
+    ));
+};
 
 /**
  * @param {string[]} messages - Message of the error
@@ -15,5 +36,7 @@ const errorHandler = (...messages) => {
 };
 
 module.exports = {
+    logHandler,
+    successHandler,
     errorHandler,
 };

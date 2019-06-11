@@ -17,7 +17,8 @@
     "build": "node configs/scripts/build.js",
     "node": "node configs/scripts/node.js",
     "new-component": "node configs/scripts/new-component",
-    "storybook": "start-storybook --config-dir configs/.storybook"
+    "storybook": "start-storybook --config-dir configs/.storybook",
+    "setup": "node configs/scripts/setup/setup.js"
   },
   "license": "MIT",
   "dependencies": {
