@@ -103,12 +103,8 @@ These CLI commands will help you to do various tasks for you and you don't have 
 
 #### `npm run node`
 - Run the node process of the production server. Must be called after running `build`.
-#### `npm run new-component <path> <name>`
-- Create a new component by name at a specific path relative to components directory.
-- Parameters:
-  - `path`: Required. The path relative to `components` directory.
-  - `name`: Required. Name of the component.
-- For example, `npm run new-component ./Pages Landing` will create the Landing component at the `components/Pages` directory.
+#### `npm run new-component`
+- Create a new component without manually creating files or copy and paste code.
 
 ---
 ### Configurations
