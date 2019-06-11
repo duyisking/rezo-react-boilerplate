@@ -95,11 +95,7 @@ These CLI commands will help you to do various tasks for you and you don't have 
 - Clean coverage reports. It removes `coverage` directory from this repository.
 
 #### `npm run build`
-- Build universal app on production mode. This command will output compiled files and all other resources to the `dist` folder. This command enables SSR by default but you can turn it off with the option `--no-ssr` following this command.
-- Options:
-    - `-h, --help`: output usage information.
-    - `-o, --open`: Automatically open bundle analyzer report in default browser.
-    - `-n, --no-ssr`: Turn off server-side rendering.
+- Build universal app on production mode. This command will output compiled files and all other resources to the `dist` folder. This command enables SSR by default but you can choose to turn it off.
 
 #### `npm run node`
 - Run the node process of the production server. Must be called after running `build`.
