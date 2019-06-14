@@ -59,32 +59,57 @@ These CLI commands will help you to do various tasks for you and you don't have 
 #### `npm run lint`
 - Run ESLint and display report. After running, it created an HTML file inside `dist` named `lint-report.html`. You can open it in a browser to view the result.
 
+#### `npm run test:client`
+- Added in: v1.6.0
+- Run Jest test on client-side. Coverage will be reported in HTML format, placed at `coverage/client` inside this repository.
+
+#### `npm run test:server`
+- Added in: v1.6.0
+- Run Jest test on server-side. Coverage will be reported in HTML format, placed at `coverage/server` inside this repository.
+
 #### `npm test`
-- Run Jest test. Coverage will be reported in HTML format. It creates `coverage` directory inside this repository.
+- Run Jest test on both client-side and server-side. It run 2 command `npm run test:client` and `npm run test:server` sequentially.
+
+#### `npm run test:open:client`
+- Added in: v1.6.0
+- Open client-side coverage reports in the default browser.
+
+#### `npm run test:open:server`
+- Added in: v1.6.0
+- Open server-side coverage reports in the default browser.
 
 #### `npm run test:open`
 - Added in: v1.5.0
-- Open coverage reports in the default browser.
+- Open client-side coverage reports in the default browser. A short version of `npm run test:open:client`!
+
+#### `npm run test:clean:client`
+- Added in: v1.6.0
+- Clean client-side coverage reports. It removes `coverage/client` directory from this repository.
+
+#### `npm run test:clean:server`
+- Added in: v1.6.0
+- Clean server-side coverage reports. It removes `coverage/server` directory from this repository.
 
 #### `npm run test:clean`
 - Added in: v1.5.0
 - Clean coverage reports. It removes `coverage` directory from this repository.
 
 #### `npm run build`
-- Build universal app on production mode. This command will output compiled files and all other resources to the `dist` folder. This command enables SSR by default but you can turn it off with the option `--no-ssr` following this command.
-- Options:
-    - `-h, --help`: output usage information.
-    - `-o, --open`: Automatically open bundle analyzer report in default browser.
-    - `-n, --no-ssr`: Turn off server-side rendering.
+- Build universal app on production mode. This command will output compiled files and all other resources to the `dist` folder. This command enables SSR by default but you can choose to turn it off.
 
 #### `npm run node`
 - Run the node process of the production server. Must be called after running `build`.
-#### `npm run new-component <path> <name>`
-- Create a new component by name at a specific path relative to components directory.
-- Parameters:
-  - `path`: Required. The path relative to `components` directory.
-  - `name`: Required. Name of the component.
-- For example, `npm run new-component ./Pages Landing` will create the Landing component at the `components/Pages` directory.
+
+#### `npm run new-component`
+- Create a new component without manually creating files or copy and paste code.
+
+#### `npm run storybook`
+- Added in: v1.4.0
+- Run Storybook to test individual component.
+
+#### `npm run setup`
+- Added in: v1.6.0
+- Setup everything for a new project. You need to run this command after running `npm install` for the first time.
 
 ---
 ### Configurations

@@ -1,20 +1,16 @@
 /* eslint max-len: ["error", { "code": 100, "comments": 200 }] */
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
-const config = require('../config.js');
-
-const { APP } = config;
-
 module.exports = {
     collectCoverage: true,
     coverageReporters: [
         'json',
         'html',
     ],
+    coverageDirectory: '<rootDir>/coverage/server',
 
     moduleDirectories: [
         'node_modules',
-        `<rootDir>/src/client/${APP}`,
     ],
 
     moduleFileExtensions: ['js', 'jsx'],
@@ -29,9 +25,10 @@ module.exports = {
 
     setupFilesAfterEnv: ['<rootDir>/configs/enzyme.setup.js'],
 
+    testEnvironment: 'node',
+
     testMatch: [
-        '**/__tests__/**/*.js?(x)',
-        '**/?(*.)+(spec|test).js?(x)',
+        '**/server/test/**/*.js',
     ],
 
     transform: {

@@ -10,19 +10,17 @@ import chalk from 'chalk';
 import path from 'path';
 import express from 'express'; /* eslint no-unused-vars: "off" */
 
-/* eslint-disable import/no-unresolved */
 import {
     state,
-} from 'reducers';
-import App from 'components/App';
-import Head from 'components/Head';
-import GlobalStyle from 'components/GlobalStyle';
-/* eslint-enable import/no-unresolved */
+} from '../../../app/redux/reducers';
+import App from '../../../app/components/App';
+import Head from '../../../app/components/Head';
+import GlobalStyle from '../../../app/components/GlobalStyle';
 
 import compilationStats from '../../../../dist/compilation-stats.json';
+import stats from '../../../../dist/loadable-stats.json';
 
-const statsFile = path.resolve(__dirname, './loadable-stats.json');
-const extractor = new ChunkExtractor({ statsFile });
+const extractor = new ChunkExtractor({ stats });
 
 /**
  * Metadata object for rendering head tag.

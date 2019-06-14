@@ -1,5 +1,15 @@
 ## [Unreleased]
 
+## [1.6.0 June 14 2019]
+### Features
+- Write tests for server.
+- Update client tests.
+- The `new-component` and `build` commands now use prompt instead of using options for better user experience.
+- Write setup command.
+- Update README.
+### Bug fixes
+- Fix tests for Head component.
+
 ## [1.5.0 June 1 2019]
 ### Features
 - Update README.
