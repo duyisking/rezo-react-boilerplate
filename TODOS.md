@@ -1,5 +1,4 @@
 ## Features
-- Write setup.js
 - Suport async, await.
 - [WIP] Write Documentation
   - Node version requirement

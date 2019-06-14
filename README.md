@@ -99,8 +99,17 @@ These CLI commands will help you to do various tasks for you and you don't have 
 
 #### `npm run node`
 - Run the node process of the production server. Must be called after running `build`.
+
 #### `npm run new-component`
 - Create a new component without manually creating files or copy and paste code.
+
+#### `npm run storybook`
+- Added in: v1.4.0
+- Run Storybook to test individual component.
+
+#### `npm run setup`
+- Added in: v1.6.0
+- Setup everything for a new project. You need to run this command after running `npm install` for the first time.
 
 ---
 ### Configurations
