@@ -9,8 +9,8 @@
   "scripts": {
     "start": "node configs/scripts/start.js",
     "lint": "node configs/scripts/lint.js",
-    "test:client": "jest --config ./configs/jest.client.config.js",
-    "test:server": "jest --config ./configs/jest.server.config.js",
+    "test:client": "jest --config ./configs/jest.client.config.js --forceExit",
+    "test:server": "jest --config ./configs/jest.server.config.js --forceExit",
     "test": "node configs/scripts/test.js",
     "test:open:client": "node configs/scripts/test-open.js",
     "test:open:server": "node configs/scripts/test-open.js -s",
@@ -22,7 +22,9 @@
     "node": "node configs/scripts/node.js",
     "new-component": "node configs/scripts/new-component",
     "storybook": "start-storybook --config-dir configs/.storybook",
-    "setup": "node configs/scripts/setup/setup.js"
+    "setup": "node configs/scripts/setup/setup.js",
+    "internal:test": "jest --config ./configs/jest.internal.config.js --forceExit",
+    "internal:test:open": "opener ./configs/coverage/index.html"
   },
   "license": "MIT",
   "dependencies": {
