@@ -3,10 +3,10 @@ const config = require('../config.js');
 
 // Declare paths
 // level 0
-const WORK_DIR = path.resolve(__dirname, '../');
+const WORK_DIR = path.resolve(__dirname, '..');
 // level 1
-const APP_DIR = path.resolve(WORK_DIR, 'src/app');
-const SERVER_DIR = path.resolve(WORK_DIR, 'src/server');
+const APP_DIR = path.resolve(WORK_DIR, 'src', 'app');
+const SERVER_DIR = path.resolve(WORK_DIR, 'src', 'server');
 const DIST_DIR = path.resolve(WORK_DIR, 'dist');
 const STATIC_DIR = path.resolve(WORK_DIR, 'static');
 // level 2

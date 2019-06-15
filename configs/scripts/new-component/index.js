@@ -12,6 +12,10 @@ const {
 const {
     errorHandler,
 } = require('../utils');
+const {
+    validateComponent,
+    validateDirectory,
+} = require('./validate');
 
 inquirer
     .prompt([
@@ -19,27 +23,14 @@ inquirer
             type: 'input',
             name: 'component',
             message: 'What is the component name?',
-            validate: (component) => {
-                const pass = component.match(/^[A-Z][a-zA-Z]*/);
-                if (pass) {
-                    return true;
-                }
-                return 'Please enter a valid name contains only alphabet characters (a-z,A-Z) with the first letter capitalized.';
-            },
+            validate: validateComponent,
         },
         {
             type: 'input',
             name: 'directory',
             message: 'Where do you want to place this component? (inside src/app/components)',
-            validate: (directory) => {
-                const componentsDir = path.resolve(APP_DIR, 'components');
-                const dirPath = path.resolve(componentsDir, directory);
-                const pass = dirPath.match(new RegExp(`^${componentsDir}`));
-                if (pass) {
-                    return true;
-                }
-                return 'Invalid relative path.';
-            },
+            validate: validateDirectory,
+            default: '',
         },
         {
             type: 'confirm',
