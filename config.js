@@ -11,12 +11,20 @@ module.exports = {
     },
     babelrc: {
         presets: [
-            '@babel/preset-env',
+            [
+                '@babel/preset-env',
+                {
+                    targets: {
+                        node: 8,
+                    },
+                },
+            ],
             '@babel/preset-react',
         ],
         plugins: [
-            'babel-plugin-styled-components',
             '@babel/plugin-syntax-dynamic-import',
+            '@babel/plugin-transform-async-to-generator',
+            'babel-plugin-styled-components',
             '@loadable/babel-plugin',
         ],
     },
