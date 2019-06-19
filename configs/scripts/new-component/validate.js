@@ -44,7 +44,7 @@ const validateDirectory = (directory) => {
 };
 validateDirectory.message = 'Invalid relative path.';
 
-export {
+module.exports = {
     checkSubPath,
     validateComponent,
     validateDirectory,
