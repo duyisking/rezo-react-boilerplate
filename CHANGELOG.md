@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [1.7.0 June 25 2019]
+### Features
+- Support async, await.
+
 ## [1.6.2 June 19 2019]
 ### Bug fixes
 - Fix issue [#14](https://github.com/rezo-labs/universal-react-app/issues/14#issue-458003005)
