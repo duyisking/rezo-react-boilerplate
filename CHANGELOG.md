@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+## [1.7.0 June 25 2019]
+- Suport async, await.
+
 ## [1.6.0 June 14 2019]
 ### Features
 - Write tests for server.
