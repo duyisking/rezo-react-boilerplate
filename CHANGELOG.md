@@ -4,6 +4,14 @@
 ### Features
 - Support async, await.
 
+## [1.6.2 June 19 2019]
+### Bug fixes
+- Fix issue [#14](https://github.com/rezo-labs/universal-react-app/issues/14#issue-458003005)
+
+## [1.6.1 June 15 2019]
+### Bug fixes
+- Fix issue [#12](https://github.com/rezo-labs/universal-react-app/issues/12#issue-456549764).
+
 ## [1.6.0 June 14 2019]
 ### Features
 - Write tests for server.
