@@ -103,6 +103,10 @@ These CLI commands will help you to do various tasks for you and you don't have 
 #### `npm run new-component`
 - Create a new component without manually creating files or copy and paste code.
 
+#### `npm run new-component`
+- Added in: v2.0.0
+- Delete component with ease.
+
 #### `npm run storybook`
 - Added in: v1.4.0
 - Run Storybook to test individual component.

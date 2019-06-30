@@ -1,5 +1,12 @@
 ## [Unreleased]
 
+## [2.0.0 June 30 2019]
+### BIG Changes
+- `configs` is separated from this boilerplate, but included as a submodule, an infrastructure.
+### Features
+- New commands: `del-component`.
+- Update `new-component`.
+
 ## [1.7.0 June 25 2019]
 ### Features
 - Support async, await.
