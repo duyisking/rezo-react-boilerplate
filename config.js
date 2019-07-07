@@ -7,7 +7,12 @@ module.exports = {
     SSR: false,
     // This object contains all the constants that are available to all source files
     globals: {
-        API_URL: 'http://localhost:3001',
+        dev: {
+            API_URL: 'http://localhost:3001',
+        },
+        prod: {
+            API_URL: 'http://example.com',
+        },
     },
     babelrc: {
         presets: [
