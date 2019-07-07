@@ -103,10 +103,6 @@ These CLI commands will help you to do various tasks for you and you don't have 
 #### `npm run new-component`
 - Create a new component without manually creating files or copy and paste code.
 
-#### `npm run del-component`
-- Added in: v2.0.0
-- Delete component without manual actions.
-
 #### `npm run storybook`
 - Added in: v1.4.0
 - Run Storybook to test individual component.
@@ -118,6 +114,14 @@ These CLI commands will help you to do various tasks for you and you don't have 
 ---
 ### Configurations
 Configurations are needed for customizing your project. The file `config.js` provide various of configurations to make your project more flexible and manageable.
+#### `APP`
+[string]
+
+Added in: v0.1.0.
+**Removed in: v1.5.0**
+
+Specify which app to run if multiple apps are presented. From v1.5.0, it is removed because there is only one app in a boilerplate and it is the default one.
+
 #### `PORT`
 [number]
 
@@ -130,7 +134,7 @@ The port number on which the Node.js server listens upon startup. This port is u
 
 Added in: v1.0.0
 
-The port used by Webpack Dev Server, used only on development mode. `WEBPACK_PORT` mustn't be identical to `PORT`.
+The port used by Webpack Dev Server, used only on development mode.
 
 #### `SSR`
 [boolean]
