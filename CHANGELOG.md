@@ -1,5 +1,14 @@
 ## [Unreleased]
 
+## [2.1.0 July 7 2019]
+### Changes
+- Split `globals` config into 2 modes, one for development and one for production.
+- Replace React static files by CDN links.
+### Features
+- Use WebpackBar for better bundling experience.
+- Update README, create `docs` to store old version documentations.
+- Add json-loader to client Webpack config.
+
 ## [2.0.0 June 30 2019]
 ### BIG Changes
 - `configs` is separated from this boilerplate, but included as a submodule, an infrastructure.
