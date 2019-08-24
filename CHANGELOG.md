@@ -1,5 +1,16 @@
 ## [Unreleased]
 
+## [2.2.0 August 24 2019]
+### Changes
+- Update README.
+- Use WebpackBar in both dev and build mode.
+### Features
+- Integrate TypeScript.
+- Greately extend Webpack configs. User can now extend Webpack configurations in `config.js`.
+### Bug fixes
+- Fix host name of the Webpack Dev Server.
+- Fix an issue that causes browser to automatically open 2 tabs instead of 1.
+
 ## [2.1.0 July 7 2019]
 ### Changes
 - Split `globals` config into 2 modes, one for development and one for production.

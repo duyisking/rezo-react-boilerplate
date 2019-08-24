@@ -10,10 +10,14 @@ A boilerplate to create Universal React Application.
 - **Fast deployment** - With Docker, deployment is super easy. Just run `npm run build:docker`, it will containerize all production files into a single image and ready to be deployed.
 
 ## Installation
+Before getting started, you need to run several commands to get everything ready.
 ```
-git clone https://github.com/duyisking/universal-react-app <your_project_name>
-cd <your_project_name>
+git clone https://github.com/duyisking/universal-react-app project
+cd project
 npm install
+git submodule init
+git submodule update
+npm run setup
 ```
 
 ---
@@ -119,39 +123,125 @@ These CLI commands will help you to do various tasks for you and you don't have 
 ### Configurations
 Configurations are needed for customizing your project. The file `config.js` provide various of configurations to make your project more flexible and manageable.
 #### `PORT`
-[number]
+Type: `number`
+
+Default: `3000`
 
 Added in: v1.0.0
 
 The port number on which the Node.js server listens upon startup. This port is used on both development and production mode. Although this config variable gives the server a static port number, we can still change it by setting the `PORT` environment variable.
 
 #### `WEBPACK_PORT`
-[number]
+Type: `number`
+
+Default: `8080`
 
 Added in: v1.0.0
 
 The port used by Webpack Dev Server, used only on development mode. `WEBPACK_PORT` mustn't be identical to `PORT`.
 
 #### `SSR`
-[boolean]
+Type: `boolean`
+
+Default: `false`
 
 Added in: v1.3.0
 
 Indicate server-side rendering mode, used only on development mode. The [`build`](#npm-run-build) command does not care about this option to prevent accidentally turning SSR off. On development mode, SSR would be enabled if either this option is `true` or by using the `-s` option.
 
 #### `globals`
-[Object]
+Type: 
+```javascript
+{
+    dev: {
+        // set of constants appear in development mode
+    },
+    prod: {
+        // set of constants appear in production mode
+    }
+}
+```
+Default:
+```javascript
+{
+    dev: {
+        API_URL: 'http://localhost:3001',
+    },
+    prod: {
+        API_URL: 'http://example.com',
+    },
+}
+```
 
 Added in: v1.1.0
 
-Contains all global constants which you can use inside the source code. Before v1.1.0, it was replaced by `API_URL` which is the global URL for making AJAX requests. Since v1.1.0, `API_URL` was moved into `globals` to enable declaring more global constants.
+An object contains all global constants which you can use inside the source code, with each entry is the constant name and its value. Before v1.1.0, it was represented by `API_URL` which is the global URL for making AJAX requests. Since v1.1.0, `API_URL` was moved into `globals` to enable declaring more global constants.
 
 #### `babelrc`
-[Object]
+Type: `Object`
+
+Default:
+```javascript
+{
+    presets: [
+        [
+            '@babel/preset-env',
+            {
+                targets: {
+                    node: 'current',
+                },
+            },
+        ],
+        '@babel/preset-react',
+    ],
+    plugins: [
+        '@babel/plugin-syntax-dynamic-import',
+        '@babel/plugin-transform-async-to-generator',
+        'babel-plugin-styled-components',
+        '@loadable/babel-plugin',
+    ],
+}
+```
 
 Added in: v1.2.0
 
-Babel configuration for transpiling JS. It is used to replace `.babelrc` file.
+Babel configuration object for transpiling JS. It is a replacement for `.babelrc` file.
+
+#### `webpack`
+Type:
+```javascript
+{
+    client: {
+        // client side configuration
+        common: {
+            // used in dev and prod modes
+        },
+        dev: {
+            // used in dev mode
+        },
+        prod: {
+            // used in prod mode
+        }
+    },
+    server: {
+        // server side configuration
+        common: {
+            // used in dev and prod modes
+        },
+        dev: {
+            // used in dev mode
+        },
+        prod: {
+            // used in prod mode
+        }
+    }
+}
+```
+Default: `null`
+
+Added in: v2.2.0
+
+By default, the boilerplate use internal Webpack configurations to bundle things and they work smoothly. However, they are not built for general purpose. So sometimes we need to change them to meet additional requirements in a project. Using this config, you can extend the current internal configurations with a greate flexibility. But if you don't want to change anything, just let it be null.
 
 ### Dist structure
 The `dist` directory contains all files for deployment. It includes both client-side and server-side code. It may also contains reports for ESlint and [Bundle Analyzer Plugin](https://github.com/webpack-contrib/webpack-bundle-analyzer).
