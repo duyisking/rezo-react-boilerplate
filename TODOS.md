@@ -3,7 +3,7 @@
   - Node version requirement
   - Code migration.
 - Integrate a sitemap generator.
-- Extend config.js configuration ability.
+- [WIP] Extend config.js configuration ability.
 - Find a way to handle dev and prod templates.
 - Hot reload for config.js.
 
