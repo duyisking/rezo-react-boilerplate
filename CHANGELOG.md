@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [2.2.2 August 28 2019]
+### Bug fixes
+- Fix Storybook not working with Typescript.
+
 ## [2.2.1 August 28 2019]
 ### Bug fixes
 - Add missing modules for Typescript in `package.json`.
