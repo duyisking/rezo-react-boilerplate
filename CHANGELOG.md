@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [2.2.1 August 28 2019]
+### Bug fixes
+- Add missing modules for Typescript in `package.json`.
+
 ## [2.2.0 August 24 2019]
 ### Changes
 - Update README.
