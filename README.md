@@ -14,11 +14,9 @@ A boilerplate to create Universal React Application.
 ## Installation
 Before getting started, you need to run several commands to get everything ready.
 ```
-git clone https://github.com/duyisking/universal-react-app project
+git clone --recurse-submodules --depth 1 https://github.com/rezo-labs/universal-react-app project
 cd project
 npm install
-git submodule init
-git submodule update
 npm run setup
 ```
 
