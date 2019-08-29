@@ -5,8 +5,8 @@ node_js:
 
 script:
   - npm run internal:test
+  - printf "n\nn" | npm run build
   - npm test
-  - npm run build
 
 notifications:
   email:
