@@ -1,5 +1,11 @@
 ## [Unreleased]
 
+## [2.3.0 August 29 2019]
+### Features
+- Add [svgr](https://github.com/smooth-code/svgr) to Webpack configs.
+- Integrate Travis CI.
+- Update README with a fancy build button.
+
 ## [2.2.2 August 28 2019]
 ### Bug fixes
 - Fix Storybook not working with Typescript.
