@@ -1,6 +1,8 @@
 <h1>Universal React App</h1>
 A boilerplate to create Universal React Application.
 
+[![Build Status](https://travis-ci.org/rezo-labs/universal-react-app.svg?branch=master)](https://travis-ci.org/rezo-labs/universal-react-app)
+
 ## Features
 - **React application + Express server** - You can build Front-end and Back-end simultaneously, perfect for Full-stack developers.
 - **Hot reloading** - Your saved changes on both client and server code are reflected instantaneously.
