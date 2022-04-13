@@ -32,7 +32,7 @@
   "dependencies": {
     "@loadable/component": "^5.9.0",
     "@loadable/server": "^5.9.0",
-    "async": "^2.6.2",
+    "async": "^3.2.2",
     "chalk": "^2.4.2",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
